@@ -8,7 +8,8 @@
 | mem_access | 1   | 1    |
 | otp_access | 1   | 0    |
 | otp_rdck   | 1   | 1    |
-| otp_usrrg  |     |      |
+| otp_usrrg  | -   | -    |
 | reg_access | 1   | 1    |
 | sca_cg     | 1   | 1    |
-| trng       |     |      |
+| trng       | 1   |      |
+| MultiMem   | 1   |      |

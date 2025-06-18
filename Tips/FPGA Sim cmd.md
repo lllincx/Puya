@@ -1,1 +1,1 @@
-run -t case_name -w --fpga --comp_id=fpga --sim-id=fpga，其中case_name为仿真case名字，如system/tc_c_sanity
+ -run -t case_name -w --fpga --comp_id=fpga --sim-id=fpga，其中case_name为仿真case名字，如system/tc_c_sanity

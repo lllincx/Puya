@@ -18,14 +18,14 @@ pt105_soc_v1/ip/soc/TrustEn200/rtl/macro/rm_inv.v
 > SMC 不能写，其他已经解决
 
 | case name            | 符合预期 | 移植完毕 |
-| -------------------- | -------- | -------- |
-| sh abnormal_ahb_test | 1        | 1        |
-| sh abnormal_apb_test | 1        | 1        |
-| sh_aca_cg_test       | 1        | 1        |
-| sh_hash_cg_test      | 0        | 1        |
-| sh_lcs_func_test     | 1        | 1        |
-| sh_mem_access_test   | 1        | 1        |
-| sh_otp_access_test   | 1        | 1        |
-| sh_reg_access_test   | 1        | 1        |
-| sh_sca_cg_test       | 1        | 1        |
-| sh_trng_func_test    | 0        | 0        |
+| -------------------- | ---- | ---- |
+| sh abnormal_ahb_test | 1    | 1    |
+| sh abnormal_apb_test | 1    | 1    |
+| sh_aca_cg_test       | 1    | 1    |
+| sh_hash_cg_test      | 0    | 1    |
+| sh_lcs_func_test     | 1    | 1    |
+| sh_mem_access_test   | 1    | 1    |
+| sh_otp_access_test   | 1    | 1    |
+| sh_reg_access_test   | 1    | 1    |
+| sh_sca_cg_test       | 1    | 1    |
+| sh_trng_func_test    | 0    | 0    |

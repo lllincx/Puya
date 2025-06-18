@@ -1,3 +1,0 @@
-# Multi-mem
-
-![[Multi-Mem]]
