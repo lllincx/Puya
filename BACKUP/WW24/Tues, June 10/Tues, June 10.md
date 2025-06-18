@@ -26,7 +26,11 @@
 
 otp_init_value 问题解决
 
-![[65b60e89e2f4717389d1990ae771ae08.png]]
-![[5d765e79912e0a560da76fefc710acb8.png]]
+![65b60e89e2f4717389d1990ae771ae08](https://raw.githubusercontent.com/lllincx/IMG/master/65b60e89e2f4717389d1990ae771ae08.png)
+```
+otp init value access begin
+493d0010
+otp init value=l
+```
 转告 otp flash 写入方法
 准备新 case 供使用

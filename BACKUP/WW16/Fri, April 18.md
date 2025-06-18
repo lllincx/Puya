@@ -1,7 +1,6 @@
 #### 环境支持
 
 与 IT（倪川）沟通创建文件夹（/FAST_SIM2/lincx），以便于进行仿真
-![[Pasted image 20250418111522.png]]
 
 了解流程脚本 [[Get_db.py Note]]
 

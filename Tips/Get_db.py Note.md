@@ -1,8 +1,11 @@
-tag存放位置:
+tag 存放位置:
+
 ```
 /PRODUCT_MCU/PT106/V1/_gitview/common/tag/pt106_soc_dv.tag
 ```
+
 脚本存放位置:
+
 ```
 /PRODUCT_MCU/PT106/V1/_gitview/common/script/get_db.py
 ```
@@ -26,7 +29,13 @@ Workspace 缺省创建目录根据本地工作目录(/PRODUCT_MCU/\$project/V1/\
 get db. py -w pt088 init -t ../tag/pt088_soc_init_release_20240410.tag -p PT088
 ```
 
-![[Pasted image 20250418105857.png]]
-![[Pasted image 20250418110035.png]]
+```
+pt088_soc_init_release_20240410.tag (PRODUCT_MCU/PTO88/V1/_gitview/common/tag)
+```
 
-==切记：如果是按照TAG（不是latest）创建的本地仓库，脚本会自动用指定tag在本地创建一个同名的branch 并切换到这个branch下，所以在这个本地仓库的任何改动都会在这个branch上进行，所以有仓库owner 想在用脚本创建的 database 更改仓库内容，一定要先切换到master分支再进行更改操作==
+```
+/PRODUCT MCU/PT088/V1/ gitview/lisl/pt088 init:
+ip_uart ip_usart soc_pt088
+```
+
+==切记：如果是按照 TAG（不是 latest）创建的本地仓库，脚本会自动用指定 tag 在本地创建一个同名的 branch 并切换到这个 branch 下，所以在这个本地仓库的任何改动都会在这个 branch 上进行，所以有仓库 owner 想在用脚本创建的 database 更改仓库内容，一定要先切换到 master 分支再进行更改操作==

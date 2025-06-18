@@ -9,7 +9,8 @@
    - tc_c_lcs, tc_c_otp_access fail 可以忽略。
 
 wr 命令序列->for 循环+数组
-![[Pasted image 20250610141304.png]]
+![Pasted image 20250610141304](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250610141304.png)
 
 check 不通过 rc++
-![[Pasted image 20250610141353.png]]
+
+![Pasted image 20250610141304](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250610141353.png)

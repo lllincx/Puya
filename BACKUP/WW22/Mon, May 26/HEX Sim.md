@@ -1,36 +1,21 @@
-1. Source 环境变量
+#### TrustEngine case DBG
 
-```
-source setenv
-```
+上周可能因为环境问题导致的 case bug 情况目前已经解决
 
-2. 首次使用 bin 文件仿真需要先编译
+#### 支持 FPGA 进行 OTP 调试
 
-```
-make c_comp
-```
+参与讨论会议
+提出完善 case 意见，请示张老师，对 FPGA 没有进一步验证要求
+强调 otp space init 参数问题
+DBG hex 仿真问题，发现 fpga 版本代码 IRQ 悬空问题提交处理。该问题解决后取得一定进展：IP接口上有动作，但仅为开关DMA时钟，未进行数据操作，等待代码更新进一步DBG。反馈问题到群里，目前没有回复。
 
-3. 用 bin 文件替换这里的 ROM 和 RAM 文件
+![89ab85a7d8b2bc6aeb21a1089a3de43c](https://raw.githubusercontent.com/lllincx/IMG/master/89ab85a7d8b2bc6aeb21a1089a3de43c.png)
 
-```
-/asic/dv/tests/rtl_typ0/example/fc_fpga_example_sram/c_dst/arm_c_dst/mem32
-```
+#### TrustEngine Introduction Meeting Issue Solution
 
-4. 更改`makefile`里的配置
+SCA 非整数倍输入补零问题解决
+ACA 三个操作数用途问题，查看代码处理中
 
-```
-24:EXTRA SIM OPT +=+fpga load en=1
-25:export EXTRA SIM OPT
-```
+#### 编写HEX Sim笔记
 
-5. 运行仿真
-
-```
-make comp sim FSDB=1
-```
-
-6. 查看波形
-
-```
-verdi -dbdir ../../config/simv.daidir/ -ssf novas.fsdb &
-```
+![[HEX Sim]]

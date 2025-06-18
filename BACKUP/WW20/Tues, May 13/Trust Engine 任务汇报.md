@@ -12,5 +12,6 @@
 
 ## 工作输出
 
-![[Pasted image 20250513110304.png]]
-![[Pasted image 20250513110400.png]]
+![Pasted image 20250513110304.png](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250513110304.png)
+
+![Pasted image 20250513110400](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250513110400.png)

@@ -1,27 +1,36 @@
-#### 待写入入口寄存器的数据内容
+## 关于 5 月 26 日会议中强调的 ASIC 与 FPGA 参数不匹配的问题
 
-operand_a: GRID O
-operand_b: GRID P
-operand_c: GRID Q
-operand_r: GRID R
-len_type_id: len_type_S
+### 问题背景：
 
-#### 通用寄存器或长度类型寄存器的数据内容
+软件同事测试结果显示，fpga 仿真环境的 `DUBHE_OTP_INIT_VALUE` 参数定义与 ASIC 不一致。
 
-GR O: addr w，待计算的数据 A 所在的 sram 首地址
-GR P: addr x ，待计算的数据 B 所在的 sram 首地址
-GR C: addr y ，待计算的数据 C 所在的 sram 首地址
-GR R: addr z ，计算的结果数据 R 所在的 sram 首地址
-len_type_S: 数据 L，待计算的数据 A、B、C 的长度
+### 解决方案：
 
-#### Operand a, b, c, r 的关系
+`DUBHE_OTP_INIT_VALUE`参数定义在文件 `……/pt105_soc_v1/ip/soc/TrustEn200/rtl/inc/dubhe_top_cfg.vh` 中
 
-对一般运算操作，数据 R 为数据 A，数据 B 运算的结果，不使用数据 C
-仅对模乘加（Modular Multiplication and Accumulation，modMULACC），免约减模乘加（Modular Multiplication and Accumulation without reduction，modMULACCNR）来说，数据 R 为数据 A，数据 B，数据 C 运算的结果。
+因此需将 `fpga_flist.f` 中 68+6 行中引用的文件同步至`fpga_sim_flist.f` 中
 
-$$
-\begin{align}
-modMULACC:R  &= (A\times B+C)\ mod\ n\\
-modMULACCNR:R  &= A\times B+C
-\end{align}
-$$
+我现在暂无该文件的编辑权限，如需解决该问题，请安排有权限的同事按以上方案修改。
+
+完成以上修改之后，我们再看【**otp 本该无法写入，fpga 仿真结果显示可以写入**】的问题是否仍旧存在。
+
+![Pasted image 20250527142158](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250527142158.png)
+
+---
+
+#### ASIC 参数定义位置
+
+```
+pt105_soc_v1/asic/rtl/top_list
+68:-f $IP/soc/TrustEn200/dubhe_top.f
+1:+incdir+$SOC_IP/TrustEn200/rtl/inc
+dubhe_top_cfg.vh
+42:parameter DUBHE_OTP_INIT_VALUE
+
+```
+
+#### FPGA 引用文件位置
+
+```
+pt105_soc_v1/fpga/fpga_flist.f & fpga_sim_flist.f
+```
