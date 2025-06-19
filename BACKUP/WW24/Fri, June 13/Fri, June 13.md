@@ -2,7 +2,6 @@
 
 1. axi_sram 支持
 2. 看系统层面使用 shanhai ，和其他 IP 合作的文档，安全启动等
-   [[Shanhai 应用]]
 #### Shanhai 交接
 
 ##### 会议内容
