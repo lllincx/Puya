@@ -290,76 +290,133 @@
 
 独占访问提供了一种强大的、硬件支持的方法，确保共享内存系统中的数据一致性。通过使用监视器和保守的地址比较，系统保证了安全的行为，即使偶尔会出现误报，也使其成为复杂并发环境中的理想同步机制。
 
+### 关键要点
+
+- 研究表明，通过 AXI 的 SRAM 内存访问涉及标准操作如读和写，同时对芯片选择和独占访问有特定处理。
+- 内存地址移位似乎将 AXI 的字节地址与 SRAM 的字大小对齐，这对配置访问有影响。
+- 证据倾向于认为突发对齐对分页内存至关重要，具有可编程选项以提升性能。
+- 突发长度似乎可编程，但受 FIFO 深度的限制，影响传输效率。
+- 从 SRAM 启动得到支持，最低的芯片可用于初始执行。
+
+#### 标准 SRAM 访问
+
+AXI 接口将内存呈现为一个连续的平面空间，支持读、写和独占访问。芯片选择通过上层地址位、掩码和预定义值确定。如果没有选择芯片，则进行默认传输，并返回“OKAY”响应。独占访问用于原子操作，成功时返回“EXOKAY”，失败时返回“OKAY”。
+
+#### 内存地址移位
+
+AXI 地址是字节对齐的，但 SRAM 通常使用更宽的字大小（如 16 或 32 位）。地址必须移位以与 SRAM 的字大小对齐，这在配置寄存器访问期间至关重要。
+
+#### 内存突发对齐和长度
+
+突发对齐确保传输与内存边界对齐，提升分页内存如 SRAM 的性能，具有可编程的 burst_align 选项。突发长度可从 1 到 32 节编程或连续，但受 FIFO 深度的限制，有特定的读写公式。
+
+#### 从 SRAM 启动
+
+SMC 支持从最低 SRAM 芯片（通常是芯片 0）启动，在启动期间映射到地址 0x0，定时寄存器设置为慢速内存。
+
 ---
-NAND memory accesses
-This section describes:
-Two phase NAND accesses
-NAND command phase transfers on page 2-18 NAND data phase transfers on page 2-19. Two phase NAND accesses
-The SMC defines two phases of commands when transferring data to or from NAND flash.
-Command phase
-Commands and optional address information are written to the NAND flash. The command and address can be associated with either a data phase operation to write to or read from the array, or a status/ID register transfer.
-Data phase Data is either written to or read from the NAND flash. This data can be
-either data transferred to or from the array, or status/ID register
-information.
-The SMC uses information contained in the AXI address bus, either awaddr[ or araddr[ signals, to determine whether the AXI transfer is a command or data phase access.
-This information contained in the address bus additionally determines: the value of the command
-the number of address cycles the chip select to be accessed.
-During a command phase transfer, the address to be written to the NAND memory is transferred to the SMC using the AXI write channel.
-Note
-The size of the AXI transfer for data phase transfers must be larger than the width of the memory interface.
 
-|   |   |   |
-|---|---|---|
-|Table 2-2 NAND AXI address setup|   |   |
-|AXI address|Command phase|Data phase|
-|[31:24]|Chip address|Chip address|
-|[23]|NoOfAddCycles_2|Reserved|
-|[22]|NoOfAddCycles_1|Reserved|
-|[21]|NoOfAddCycles_0|ClearCS|
-|[20]|End command valid|End command valid a|
-|[19]|0|1|
-|[18:11]|End command|End commandb|
-|[10:3]|Start command|[10] ECC Last  <br>[9:3] Reserved|
-|[2:0]|Reservedc|Reservedc|
+### 详细分析：AXI 接口中 SRAM 内存访问
 
-Table 2-2 lists the fields of awaddr[ and araddr[ signals that control a NAND flash transfer.
-Table 2-2 NAND AXI address setup 
+本节提供通过 AXI（高级可扩展接口）接口访问 SRAM（静态随机存取存储器）的全面分析，基于提供的技术文档。重点包括标准访问、内存地址移位、突发对齐、突发长度和从 SRAM 启动，并附加上下文以确保技术与非技术受众的清晰理解。
 
-a.
-For a read data phase transaction, the end command valid must be 0.
-b.
-End command data is ignored if end command valid is not true.
-c. The bottom three bits of a NAND access determine the valid data byte lanes, in the same way as for a standard AXI access.
-NAND command phase transfers
-A command phase transfer is always performed as an AXI write. The AXI awaddr[ bus, and Table 2-2 contain the following information:
-Address cycles
-The number of address cycles can be any value from zero to seven. Generally, up to five cycles are used during an array read or write, but a maximum of seven enables support for future devices.
-Start command
-The NAND command is used to initiate the required operation, for example:
-page read 
+#### SRAM 和 AXI 的背景
 
-page program
-random page read
-status or ID register read.
-End command
-The value of the second command, if required. This command is executed when all address cycles have completed. For example, some NAND memories require an additional command, following the address cycles, for a page read.
-End command valid
-Indicates whether the end command must be issued to the NAND flash.
-Each address cycle consumes eight bits of address information. This is transferred to the SMC through the AXI write channel.
-Note
-To ease system integration, the SMC supports the use of multiple AXI write transactions to transfer address information. The following restrictions apply in this case:
-1.
-The AXI address [31:3] bits must not change between transactions. The first transaction must be doubleword aligned.
-2. 3.
-All other address information must be the same, with the exception of transaction length.
-Data must be transferred in incrementing, consecutive accesses, that is, not wrapping, fixed, or sparse.
-4.
-Extra or unused beats in the last transaction must have write strobes disabled.
-5.
-Total number of beats must be less than the write FIFO depth.
-NAND data phase transfers
-Transfers data to or from the NAND flash, and can be performed as either an AXI read or write, depending on the required operation. The araddr[] or awaddr[ ] bus, and Table 2-2 on page 2-18 contain this information:
-End command
-The value of a command that is issued following the data transfer. This is required by some memories to indicate a page program following input of write data.
+SRAM 是一种只要供电就保留数据的内存类型，由于没有刷新周期，比 DRAM 更快。通常用于嵌入式系统中的缓存或启动，速度至关重要。AXI 接口是 AMBA（高级微控制器总线架构）规范的一部分，是 ARM 系统中用于连接处理器到外设的高性能总线协议，包括内存。它支持广泛的操作，如读、写和独占访问，这些对多核系统中的原子操作至关重要。
+
+文档详细描述了如何通过 AXI 访问 SRAM，重点是程序员的视图和特定管理内存操作的机制。本分析将分解每个方面，并结合额外资源以增强理解。
+
+#### 标准 SRAM 访问
+
+从 AXI 程序员的角度看，内存呈现为一个连续的平面地址空间。这种抽象简化了编程，允许线性地址访问，无需了解内存设备的物理组织。AXI 接口支持：
+
+- **读和写**：基本内存操作用于数据传输。
+- **独占访问**：用于原子操作，确保自上次读取以来内存位置未被修改，这对多线程环境中的同步至关重要。
+
+芯片选择机制确定访问哪个内存设备（或“芯片”）。这是基于地址的上 8 位（读为 araddr[31:24]，写为 awaddr[31:24]），与 address_mask 的值掩码后与 address_match 比较。例如，如果 address_mask 是 0xFF000000 且 address_match 是 0x00000000，则上 8 位为 0x00 的任何地址将选择芯片 0。这种映射确保每个地址范围对应于特定内存设备，防止重叠，否则系统内存控制器（SMC）的行为未定义。
+
+如果地址未映射到任何配置的芯片选择，SMC 在内存接口 0 上执行默认异步传输，所有芯片选择都未断言。然后，它向 AXI 总线响应“OKAY”，表示传输完成，尽管实际上未访问任何内存。这种行为确保系统对未映射地址保持稳定。
+
+独占访问对原子操作尤为重要。如果成功（即自上次读取以来内存位置未更改），响应为“EXOKAY”；否则为“OKAY”，表示访问失败。这符合 AMBA AXI 协议 v1.0 规范，确保与标准实践兼容。
+
+文档中提到，信号如 arcache、awcache、arprot 和 awprot 包含在 AXI 接口中仅为完整性，但 SMC 不使用这些信号传输的信息。这些信号与缓存属性和保护相关，不影响 SRAM 访问，简化了此上下文的接口。
+
+#### 内存地址移位
+
+AXI 地址是字节对齐的，意味着每个地址指向单个字节，这是现代处理器的标准。然而，SRAM 设备通常具有更宽的数据总线，如 16 位或 32 位，意味着以较大块（字）访问内存。为了正确接口，呈现给 SRAM 的地址必须与其字大小对齐。
+
+例如，如果 SRAM 是 16 位宽，地址必须右移 1 位（除以 2），因为 SRAM 以 16 位字而非字节看待地址。这种移位是必要的，因为 AXI 的字节对齐寻址必须转换为 SRAM 的字对齐寻址。文档强调，这在内存设备初始配置期间至关重要，特别是当通过特定地址序列访问内存模式寄存器时。程序员必须考虑此移位以定位正确的内存位置，确保适当的设置和操作。
+
+#### 内存突发对齐
+
+突发访问允许在单个操作中传输多个数据字，通过减少单个事务的数量来提高效率。然而，一些内存设备，特别是具有页面模式的如异步页面模式 SRAM 或同步 PSRAM（伪 SRAM），如果突发与内部页面边界对齐，性能更好。跨越页面边界可能导致性能惩罚，因为内存需要切换页面。
+
+SMC 提供可编程选项 burst_align，由 opmode 寄存器控制。启用时，burst_align 确保内存突发与内存的突发边界对齐。如果 AXI 突发会跨越边界，SMC 将其分区为多个内存突发，每个在边界处终止。这适用于具有内部页面的内存，确保通过避免边界跨越优化性能。
+
+文档指出，页面大小必须是突发长度的整数倍，以防止启用 burst_align 时内存突发跨越页面边界。此要求对维持效率至关重要。
+
+当 burst_align 禁用时，SMC 在将 AXI 命令映射到内存命令时忽略内存突发边界。此设置适用于如 NOR 闪存等设备，这些设备没有页面的概念，允许连续突发无需对齐关注。
+
+额外资源，如 AMD AXI 外部内存控制器文档 ([AXI External Memory Controller](https://www.amd.com/en/products/adaptive-socs-and-fpgas/intellectual-property/axi_emc.html))，确认支持突发传输，长度从 1-256 节为 INCR 突发，2、4、8、16 节为 WRAP 突发，与描述的可编程性质一致。
+
+#### 内存突发长度
+
+突发长度，确定在突发中传输多少数据节，可按单个芯片基础从 1 到 32 节编程或设置为连续突发。此灵活性允许针对不同内存设备和访问模式优化。
+
+然而，实际突发长度受 SMC 的 FIFO（先进先出缓冲区）深度的限制，这些缓冲区在传输期间作为临时数据存储：
+
+- **读传输**：最大突发长度等于读数据 FIFO 的深度。例如，如果 FIFO 可容纳 16 节，突发不能超过 16 节读。
+- **写传输**：最大突发长度更复杂，取决于：
+  - asize：AXI 传输大小，确定节大小（例如，4 字节传输为 2）。
+  - mw：内存数据总线宽度（例如，16 位内存为 4）。
+  - wfifo_depth：写数据 FIFO 的深度。
+
+提供的公式为：
+
+$$
+内存写突发长度=(1≪asize)×wfifo_depth(1≪mw)\text{内存写突发长度} = \frac{(1 \ll \text{asize}) \times \text{wfifo\_depth}}{(1 \ll \text{mw})}内存写突发长度=(1≪mw)(1≪asize)×wfifo_depth​
+$$
+
+此计算确保 SMC 不尝试传输超过其缓冲区可处理的数据，防止溢出并维持系统稳定性。
+
+#### 从 SRAM 接口启动
+
+SMC 启用最低 SRAM 芯片选择，通常为芯片 0，可启动，这对需要立即执行代码的系统至关重要。要从 SRAM 启用启动，除了知道相关内存宽度外，不需要特殊功能，这由顶层固定信号 (sram*mw*<x>[1:0]) 指示。
+
+在启动过程中，当 remap\_<x> 信号为高时，具有可启动芯片选择的内存映射到基地址 0x0。这允许处理器从 SRAM 开始执行代码，促进快速初始化。此外，定时寄存器重置为最坏情况值，以确保与最慢内存的兼容性，确保不同硬件配置的可靠性。
+
+此功能在嵌入式系统中特别有用，初始代码需要存储在快速内存如 SRAM 中以快速启动，特别是在访问较慢或更复杂的内存如闪存之前。文档强调，在启动期间，系统确保 SRAM 接口就绪，除了内存宽度配置外无额外复杂性。
+
+#### 比较分析和额外见解
+
+为了增强理解，查阅了额外资源，如 Synopsys IP 技术公告关于连接 SRAM 到 AXI ([Connecting a Standard SRAM Device to an AMBA 3 AXI Subsystem](https://www.synopsys.com/dw/dwtb.php?a=sram_to_axi))，讨论使用 DesignWare Generic Slave (DW_axi_gs) 进行高效接口，消耗不到 4k 门。这确认了描述机制的可行性，DW_axi_gs 处理协议转换和信号映射，与芯片选择和突发对齐特征一致。
+
+AMD AXI 外部内存控制器也支持 SRAM，具有如突发传输和窄/未对齐事务的特征，证实了可编程突发长度和对齐选项。这些资源强调了 AXI-SRAM 接口的行业标准实践，强化了文档的细节。
+
+#### 关键特征总结表
+
+| **特征**         | **描述**                                            |
+| ---------------- | --------------------------------------------------- |
+| **标准访问**     | 平面内存视图，支持读/写/独占，芯片选择通过地址位。  |
+| **地址移位**     | 将 AXI 字节地址与 SRAM 字大小对齐，对配置至关重要。 |
+| **突发对齐**     | 可编程 burst_align 适用于分页内存，在边界分割突发。 |
+| **突发长度**     | 可编程 1-32 节或连续，受 FIFO 深度限制。            |
+| **从 SRAM 启动** | 最低芯片可启动，映射到 0x0，定时设置为慢速内存。    |
+
+此表总结了关键方面，为理解系统操作提供快速参考。
+
+总之，文档提供了通过 AXI 访问 SRAM 内存的详细视图，具有标准操作、地址对齐、突发管理和启动的机制，所有这些都得到行业标准实践和额外资源的支持。此分析确保了实施和教育目的的彻底理解。
+
+
+Start
+Write timing parameters and operating mode to the memory controller holding registers.
+Write required external chip select number and required mode register value to the direct_cmd Register.
+The SMC passes this mode register command to the memory interface. The APB interface does not accept any more configuration commands until this command has been issued to the memory and the operating registers have been updated.
+The memory interface continues passing commands to the memory device until a match in the data is made with the programmed match value.
+Write the required memory mode register value(s) using the AXI interface.
+When the match value is detected, no further commands are passed to that memory device until the operating registers have been updated.
+When the final mode register command has been issued to the memory device, enabling the operating registers to be updated, the memory interface starts to operate in the new mode of operation.
+In addition, the APB configuration registers can be programmed for the next memory device.
+End
 
 
