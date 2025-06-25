@@ -387,36 +387,5 @@ SMC 启用最低 SRAM 芯片选择，通常为芯片 0，可启动，这对需�
 
 此功能在嵌入式系统中特别有用，初始代码需要存储在快速内存如 SRAM 中以快速启动，特别是在访问较慢或更复杂的内存如闪存之前。文档强调，在启动期间，系统确保 SRAM 接口就绪，除了内存宽度配置外无额外复杂性。
 
-#### 比较分析和额外见解
-
-为了增强理解，查阅了额外资源，如 Synopsys IP 技术公告关于连接 SRAM 到 AXI ([Connecting a Standard SRAM Device to an AMBA 3 AXI Subsystem](https://www.synopsys.com/dw/dwtb.php?a=sram_to_axi))，讨论使用 DesignWare Generic Slave (DW_axi_gs) 进行高效接口，消耗不到 4k 门。这确认了描述机制的可行性，DW_axi_gs 处理协议转换和信号映射，与芯片选择和突发对齐特征一致。
-
-AMD AXI 外部内存控制器也支持 SRAM，具有如突发传输和窄/未对齐事务的特征，证实了可编程突发长度和对齐选项。这些资源强调了 AXI-SRAM 接口的行业标准实践，强化了文档的细节。
-
-#### 关键特征总结表
-
-| **特征**         | **描述**                                            |
-| ---------------- | --------------------------------------------------- |
-| **标准访问**     | 平面内存视图，支持读/写/独占，芯片选择通过地址位。  |
-| **地址移位**     | 将 AXI 字节地址与 SRAM 字大小对齐，对配置至关重要。 |
-| **突发对齐**     | 可编程 burst_align 适用于分页内存，在边界分割突发。 |
-| **突发长度**     | 可编程 1-32 节或连续，受 FIFO 深度限制。            |
-| **从 SRAM 启动** | 最低芯片可启动，映射到 0x0，定时设置为慢速内存。    |
-
-此表总结了关键方面，为理解系统操作提供快速参考。
-
-总之，文档提供了通过 AXI 访问 SRAM 内存的详细视图，具有标准操作、地址对齐、突发管理和启动的机制，所有这些都得到行业标准实践和额外资源的支持。此分析确保了实施和教育目的的彻底理解。
-
-
-Start
-Write timing parameters and operating mode to the memory controller holding registers.
-Write required external chip select number and required mode register value to the direct_cmd Register.
-The SMC passes this mode register command to the memory interface. The APB interface does not accept any more configuration commands until this command has been issued to the memory and the operating registers have been updated.
-The memory interface continues passing commands to the memory device until a match in the data is made with the programmed match value.
-Write the required memory mode register value(s) using the AXI interface.
-When the match value is detected, no further commands are passed to that memory device until the operating registers have been updated.
-When the final mode register command has been issued to the memory device, enabling the operating registers to be updated, the memory interface starts to operate in the new mode of operation.
-In addition, the APB configuration registers can be programmed for the next memory device.
-End
 
 
