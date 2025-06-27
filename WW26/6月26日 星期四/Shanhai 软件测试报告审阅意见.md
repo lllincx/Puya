@@ -22,6 +22,6 @@
 
 # 五、Hash，OTP 未测试
 
-# 六、TRNG与加密算法联动测试
+# 六、TRNG 与加密算法联动测试
 
-trng生成随机数作为密钥进行hash，sca加解密测试
+trng 生成随机数作为密钥进行 hash，sca 加解密测试
