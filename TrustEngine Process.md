@@ -29,4 +29,9 @@
 ###### hash
 - host_0
 	- regfile
+
+
+###### trng
 - 
+- trng_regfile
+- pool0_regfile
