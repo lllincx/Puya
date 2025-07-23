@@ -1,7 +1,7 @@
 - [x] nor basic
 - [x] nor buffer pgm
 - [x] nor fpga
-- [ ] nor dma rd
+- [x] nor dma rd
 - [ ] sw rst
 - [x] nand basic
 - [x] nand block erase
