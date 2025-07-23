@@ -6,7 +6,7 @@
 - [x] nand basic
 - [x] nand block erase
 - [x] nand ecc
-- [ ] nand ecc err inj
+- [x] nand ecc err inj
 - [x] nand readcheck
 - [ ] nand dma wr rd
 - [ ] clk gate
