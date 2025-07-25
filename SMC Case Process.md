@@ -2,11 +2,12 @@
 - [x] nor buffer pgm
 - [x] nor fpga
 - [x] nor dma rd
-- [ ] sw rst
+- [ ] nor cs0 boundary
+- [x] sw rst
 - [x] nand basic
 - [x] nand block erase
 - [x] nand ecc
 - [x] nand ecc err inj
 - [x] nand readcheck
-- [ ] nand dma wr rd
-- [ ] clk gate
+- [x] nand dma wr rd
+- [x] clk gate
