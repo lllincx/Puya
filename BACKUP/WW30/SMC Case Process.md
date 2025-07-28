@@ -2,7 +2,7 @@
 - [x] nor buffer pgm
 - [x] nor fpga
 - [x] nor dma rd
-- [ ] nor cs0 boundary
+- [x] nor cs0 boundary
 - [x] sw rst
 - [x] nand basic
 - [x] nand block erase
