@@ -3,6 +3,7 @@
 - [x] nor fpga
 - [x] nor dma rd
 - [x] nor cs0 boundary
+- [x] nor cs1 boundary
 - [x] sw rst
 - [x] nand basic
 - [x] nand block erase
@@ -10,4 +11,5 @@
 - [x] nand ecc err inj
 - [x] nand readcheck
 - [x] nand dma wr rd
+- [x] nand cross boundary
 - [x] clk gate
