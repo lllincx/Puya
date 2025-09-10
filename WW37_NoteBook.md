@@ -19,6 +19,11 @@ Update otp table
 
 # 9.10 Wed
 
+- Optimize TrustEngine OTP Table: mainly permisson
+- Develop new LCS case: running, take long time
+- Find OTP BUG: init OTP value, todo
+- Optimize TrustEngine SPEC
+
 # 9.11 Thu
 
 # 9.12 Fri
