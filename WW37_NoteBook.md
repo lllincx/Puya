@@ -33,6 +33,25 @@ Update otp table
 
 # 9.12 Fri
 
+### TrustEngine
+
+- Confirm DTCM availability: YES
+- Ask for OTP SPEC confirm: to be done on the weekend
+- DBG OTP user spec addr.
+
+#### DTCM Issue
+
+- DTCM Access fail
+- Run HEX sim
+
+### SMC
+
+#### A16 Issue
+
+Ask Cai Ziyang test more addr to locate the problem.
+HEX sim don't have the problem.
+Test env hardware cause the problem, A16 issue solved.
+
 # Weekly Report
 
 # To-do
