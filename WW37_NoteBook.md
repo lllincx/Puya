@@ -26,6 +26,11 @@ Update otp table
 
 # 9.11 Thu
 
+- Cai Ziyang: SMC Nor A16 issue
+- Run fpga sim,no A16 issue found.
+- Optimize SMC SPEC
+- Run new LCS case blocked
+
 # 9.12 Fri
 
 # Weekly Report
