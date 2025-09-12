@@ -1,0 +1,3 @@
+- 通过syscfg将总线送来的32位写入指令截断为八位，避免nor flash无法识别
+- Dcache未关，导致写重复的地址与预期不符。
+- sim cfg中未开启器件enable

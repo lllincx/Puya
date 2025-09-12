@@ -95,7 +95,7 @@ SMC D1位问题解决，ADDR12位同样占用了PG1
 
 
 学习TrustEngine TRNG
-![[TrustEngine Process#trng]]
+![[WW22_TrustEngine Process#trng]]
 
 DBG smc nor busy 信号无反馈，HIO47高阻
 
