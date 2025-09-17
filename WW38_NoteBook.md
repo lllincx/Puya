@@ -13,6 +13,16 @@
 
 # 9.16 Tue
 
+### TrustEngine
+
+- Support Liu Xiande for understanding OTP SPEC
+- Support Shawn for verifying OTP page 2.3.4 prg and chk
+- DBG wr lcs = 7, but rd lcs = f
+
+### SMC
+
+- update SPEC
+
 # 9.17 Wed
 
 # 9.18 Thu
