@@ -25,6 +25,15 @@
 
 # 9.17 Wed
 
+### TrustEngine
+
+- **explain why "wr lcs = 7, but rd lcs = f"**: lcs[3] reserved for hardware use, software shoud not read it.
+- **Found issue**: **user sec/no-sec area** too small (8B). Data meant for user secure area wrongly placed in test area, but no impact on most accesses. TrustEngine read perms differ but ignorable since always readable in flash. Reason flash is always readable: to verify successful writes.
+
+### SMC
+
+- update SPEC, mainly ECC.
+
 # 9.18 Thu
 
 # 9.19 Fri
@@ -32,3 +41,6 @@
 # Weekly Report
 
 # To-do
+
+ecc spec : simply as ST SPEC
+add OTP case: page 2.3.4 rd perm during invalid LCS such as 101.
