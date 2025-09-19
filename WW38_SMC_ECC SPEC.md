@@ -18,3 +18,14 @@ ECC 的操作如下：
 4. 将 FMC_PCR 寄存器中的 ECCEN 位清零后使能，然后从 NAND 页回读写入的数据。在读取 NAND 页期间，ECC 模块将计算 ECC 值。
 5. 读取 FMC_ECCR 寄存器中所提供的新 ECC 值。
 6. 如果两次读取的 ECC 值相同，则无需校正，否则说明存在 ECC 错误，并且软件校正例程将返回有关该错误是否能够得到校正的信息。
+
+## SMC ECC
+
+- 配置ecc_memcfg, ecc_commend 寄存器
+	- 根据使用的nand flash的ecc指令，配置ecc_memcommand1, ecc_memcommand2寄存器，对通用nand flash，保持默认值即可。
+	- 配置ecc_memcfg寄存器中的ecc_mode。
+	- 根据nand flash的大小配置ecc_memcfg寄存器中的page_size位。
+	- 根据nand flash每个page extra block的大小配置ecc_memcfg寄存器中的ecc_extra_block, ecc_extra_block_size 位。
+将数据写入 NAND Flash 页。在写入 NAND 页期间，ECC 模块将计算 ECC 值，并将ecc值存入extra block。ecc值也可以通过对应block的ecc_value[n]寄存器读出。
+
+从nand flash回读写入的数据时，读取期间ECC模块将计算ECC值，并与存储在extra block的已经存入的ecc值比较。比较结果可通过ecc_status寄存器查看。
