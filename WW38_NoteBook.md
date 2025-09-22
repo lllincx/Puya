@@ -50,9 +50,18 @@
 
 # 9.19 Fri
 
+### SMC
+
+- Update SPEC.
+- Run and chk ECC case for wr SPEC.
+
+### TrustEngine
+
+- update usr reigon to match design intent
+- run case to verify OTP work well after update
+- test page 2.3.4 rd perm during invalid LCS such as 101.
+
 # Weekly Report
 
 # To-do
 
-ecc spec : simply as ST SPEC
-add OTP case: page 2.3.4 rd perm during invalid LCS such as 101.
