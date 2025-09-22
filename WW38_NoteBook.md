@@ -36,6 +36,18 @@
 
 # 9.18 Thu
 
+### SMC
+
+- Update SPEC. [[WW38_SMC_ECC SPEC]]
+- Run and chk ECC case for wr SPEC.
+
+### TrustEngine
+
+- opt case for page 2.3.4
+  - add selfcheck func during LCS=DD/DR for preset LCS
+  - add selfcheck func during LCS=DD/DR for inc LCS
+  - cfm key access perm duing invaild LCS
+
 # 9.19 Fri
 
 # Weekly Report
