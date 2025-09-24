@@ -55,12 +55,12 @@ dbg smc gpio
 DBG SMC SWD读取问题：nor flash 配置 updatereg & axi cmd_type会存在问题，且：updatereg & axi是复位值。并且不重新写入复位值没问题。写入其他值也没问题。计划修改复位值，但所在寄存器为只写，难以修改。
 
 DBG FPGA仿真A24高阻问题：dbg gpio，bkp_champ问题
-![image.png|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250901100516490.png)
+![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250901100516490.png)
 
 
 DBG SMC Byte访问问题：
 仿真问题：解决case假pass问题：发送sector命令前需要清中断
-![image.png|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250901100523445.png)
+![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250901100523445.png)
 
 上机测试发送指令与预期不符：命令输入的地址无需左移
 上机测试与仿真一致，发送指令与预期相符，但mem不返回中断信号。查看mem model状态机跳转

@@ -59,4 +59,4 @@
 
 ### Sample
 
-![image.png     | 1000](https://raw.githubusercontent.com/lllincx/IMG/master/20250827104423064.png)
+![image.png     | 1000](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250827104423064.png)

@@ -1,11 +1,11 @@
 ## 失效功能
 
 经排查，只要对 `rn_pool_fill_req (rn_pool_crtl REG)` 按照文档要求写 1，即会触发仿真停止
-![](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250508100737.png)
+![](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250508100737.png)
 
 ---
 
-![Pasted image 20250508102414](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250508102414.png)
+![Pasted image 20250508102414](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250508102414.png)
 
 其中，checkpoint 设置如下：
 

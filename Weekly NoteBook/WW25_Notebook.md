@@ -109,7 +109,7 @@ TMC，SRAM，Psram验证通过
 ## Case DBG
 
 - fix scs intr bug (with chkpt version)
-  ![image.png|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250619150848449.png)
+  ![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250619150848449.png)
 
 ## SMC支持
 

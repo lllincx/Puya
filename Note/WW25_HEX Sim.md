@@ -9,7 +9,7 @@
 强调 otp space init 参数问题
 DBG hex 仿真问题，发现 fpga 版本代码 IRQ 悬空问题提交处理。该问题解决后取得一定进展：IP接口上有动作，但仅为开关DMA时钟，未进行数据操作，等待代码更新进一步DBG。反馈问题到群里，目前没有回复。
 
-![89ab85a7d8b2bc6aeb21a1089a3de43c](https://raw.githubusercontent.com/lllincx/IMG/master/89ab85a7d8b2bc6aeb21a1089a3de43c.png)
+![89ab85a7d8b2bc6aeb21a1089a3de43c](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/89ab85a7d8b2bc6aeb21a1089a3de43c.png)
 
 #### TrustEngine Introduction Meeting Issue Solution
 

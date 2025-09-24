@@ -33,7 +33,8 @@
 
 开发cross broundary case
 
-![image.png|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250729151109159.png)
+![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250924133733928.png)
+
 
 单个page具有0x420个字的地址范围，从0x400地址连续写0x40个数，并回读。前0x20个字与写入数据符合，后0x20个字与写入数据不符合。下一个page的数据内容也没有改变。
 
@@ -59,7 +60,7 @@ Newbus 测试均通过
 支持软件部门在TrustEngine方面各子模块问题，包括：
 last proc在cmac 模式下起效，需要计算CMAC长度
 dubhe_sca_mgr.v
-![image.png|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250731162759458.png)
+![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250731162759458.png)
 LCS可写功能比较有必要，LCS功能可以和OTA一起做。
 
 

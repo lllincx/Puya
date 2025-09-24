@@ -62,7 +62,7 @@ smc DBG
 
 # Case perf
 
-![image.png|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250627141021262.png)
+![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250627141021262.png)
 完善 TE case
 
 # FPGA Support

@@ -48,7 +48,7 @@ fpga hex 仿真对比 16bit 与 8bit 波形
 sca 计算核有数据输入输出和秘钥输入输出。
 通过调用计算核，输入 root key「OTP 空间中」、EK123，即可输出最终秘钥。
 
-![](https://raw.githubusercontent.com/lllincx/IMG/master/Snipaste_2025-08-12_16-38-52.png)
+![](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Snipaste_2025-08-12_16-38-52.png)
 
 
 # 8月13日 星期三

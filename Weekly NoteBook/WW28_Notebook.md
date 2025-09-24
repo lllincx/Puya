@@ -10,7 +10,7 @@
 #### TrustEngine TRNG
 
 1. Trng case 优化完成，去除冗余的遍历熵源功能，重构循环读为中断访问。
-![|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250710105304423.png)
+![|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250710105304423.png)
 
 2. 参考波形看 trng 代码。
 
@@ -84,7 +84,7 @@ trng 看波形代码
 
 
 trng case 优化完成
-![|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250710105304423.png)
+![|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250710105304423.png)
 
 fpga otp 测试支持
 

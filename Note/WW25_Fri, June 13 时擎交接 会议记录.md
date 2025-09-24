@@ -1,5 +1,5 @@
 1. 所有 case 的 FC_c.log 都有 HardFault detected
-   ![Pasted image 20250611095618](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250611095618.png)
+   ![Pasted image 20250611095618](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250611095618.png)
 
    > 可以忽略
 
@@ -10,7 +10,7 @@ pt105_soc_v1/ip/soc/TrustEn200/rtl/macro/rm_inv.v
 29://puya_inv 1_inv_dontouch(,ZH(2),,I(A));
 ```
 
-![Pasted image 20250611105018](https://raw.githubusercontent.com/lllincx/IMG/master/Pasted%20image%2020250611105018.png) 
+![Pasted image 20250611105018](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250611105018.png) 
 
 3. 多个存储器类型访问被添加到了 hash case 里面，在他们的环境和移植过来之后，其他类型的存储都是会 fail 的
 

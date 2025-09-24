@@ -81,15 +81,16 @@
 - 在 fmc 模块不做修改下，调整 OTP cofig 宏定义使用户安全区符合设计意图。并测试读写权限。
 
 **OTP Case**
-![image.png|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250922103942686.png)
+![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250924115047225.png)
 
 **调整 OTP cofig 宏定义使用户安全区符合设计意图**
-![image.png|600](https://raw.githubusercontent.com/lllincx/IMG/master/20250922104645182.png)
+![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250924115108724.png)
 
 # To-do
 
 - 支持蔡紫阳理解存储器时序参数
-	- 构建 case，得出变化时序参数后的波形
-	- 分析由于 SMC 和存储器时序参数不同的原因和后果
+
+  - 构建 case，得出变化时序参数后的波形
+  - 分析由于 SMC 和存储器时序参数不同的原因和后果
 
 - 完善 SMC，TrustEngine SPEC，补充寄存器章节

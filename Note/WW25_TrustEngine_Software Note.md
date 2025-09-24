@@ -8,7 +8,7 @@ IPSS（B 类）是针对物联网（IoT）的全面安全解决方案。IPSS（B
 
 IPSS（B 类）部署于资源受限的系统级芯片（SoC）上，该 SoC 至少包含一个 Arm Cortex-M 系列微控制器（MCU）作为主处理器。SoC 可能包含其他处理器以实现特定功能，例如提供 NB-IoT/LoRa 网络功能的通信处理器。对于主处理器，IPSS（B 类）支持基于 Armv8-M 架构的 CPU，例如 Arm Cortex-M33 处理器。IPSS（B 类）在满足安全要求的同时，具有有限的硬件资源消耗和最小的性能影响。
 
-![image.png](https://raw.githubusercontent.com/lllincx/IMG/master/20250618135310354.png)
+![image.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250618135310354.png)
 
 ### 1.3.3 启动阶段安全
 
@@ -25,4 +25,4 @@ FOTA 更新-作为 FOTA 的子模型，执行 FOTA 包的验证和安装。有�
 - 运行于设备侧的配置代理。
 - 运行于主机侧的配置工具。
 - 配置 SaaS 服务。
-![image.png](https://raw.githubusercontent.com/lllincx/IMG/master/20250618151852759.png)
+![image.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250618151852759.png)
