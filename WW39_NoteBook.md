@@ -10,6 +10,10 @@
 
 # 9.24 Wed
 
+- Join meeting about GSIM 
+- Run burst hex sim to confirm timing para effect. [[WW39_Hex Sim Rpt for diff tpc]]
+- Dev nor burst case: nor model don't support burst operation
+- Opt SPEC. [[WW39_SMC_Mem Blk]]
 # 9.25 Thu
 
 # 9.26 Fri
@@ -17,10 +21,6 @@
 # Weekly Report
 
 # To-do
-
-- 支持蔡紫阳理解存储器时序参数
-	- 构建 case，得出变化时序参数后的波形
-	- 分析由于 SMC 和存储器时序参数不同的原因和后果
 
 - Verify: Add case Desp. into table
 - Verify: Check coverage for integration (e.g., DMA, interrupts); note cases not tested in sim/FPGA.
