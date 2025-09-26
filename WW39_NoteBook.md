@@ -16,6 +16,8 @@
 - Opt SPEC. [[WW39_SMC_Mem Blk]]
 # 9.25 Thu
 
+- Join SPEC review, note revision comments.
+
 # 9.26 Fri
 
 # Weekly Report
