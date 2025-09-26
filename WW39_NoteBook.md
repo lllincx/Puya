@@ -20,6 +20,8 @@
 
 # 9.26 Fri
 
+- [[WW39_SMC_Nor MUX]]
+- Opt TrustEngine SPEC
 # Weekly Report
 
 # To-do
