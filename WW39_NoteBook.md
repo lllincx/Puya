@@ -24,6 +24,32 @@
 - Opt TrustEngine SPEC
 # Weekly Report
 
+### 主要工作总结
+
+- 将此前开发的有效case，补充进验证回归列表
+- 参与验证GSIM会议
+- 完善SPEC，参与SPEC核对会议，按照会议要求完善SPEC
+
+#### SMC
+
+- 解答蔡紫阳关于nor、nand时序参数的疑问
+	- nor：tr，tpc 的含义
+	- nand：tclr，tar，trea中SMC和器件SPEC描述不符合
+- 构建case证实tpc的实际作用
+- 构建突发读写case：终止，现有nor不支持突发读写
+- 编写文档，讲解nor mux的意义并提交
+
+### 项目状态
+
+TrustEngine SPEC：除寄存器需重新生成，其他已完成。
+SMC SPEC：待完善。
+Verify: Add case Desp. into table
+Verify: Check coverage for integration (e.g., DMA, interrupts); note cases not tested in sim/FPGA.
+
+### 补充说明材料
+
+[[WW39_SMC_Mem timing para confusion]]
+[[WW39_SMC_Nor MUX]]
 # To-do
 
 - Verify: Add case Desp. into table
