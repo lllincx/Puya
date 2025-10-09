@@ -11,7 +11,17 @@ Opt SPEC done (with table and diagram)
 
 # 9.30 Tue
 
+### TrustEngine
 
+- dev coverage rpt
+- dev case for inc coverage:
+	- submodule reset
+	- dma in or out err
+	- trng err
+- add case to gsim testcase list
+
+
+add case to gsim testcase list
 
 # To-do
 TrustEngine MSK REG 
