@@ -32,7 +32,20 @@ Review SMC top tie-off.
 `pt_shell:restore_session asic_top`
 
 Support CAI: rd ecc value while ecc mode = 01.
+
+# 10.17 Fri
+
+Opt get unrest reg
+
+### `nand_csl`
+
+No impact on compat across NAND types.  
+`nand_csl=1` better perf for single-die excl.  
+`nand_csl=0` supports multi-die interlv.
+
+# Weekly Report
+
 # To-do
 
-TrustEngine MSK REG
 DEFMA
+add sram.db to filelist
