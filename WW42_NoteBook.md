@@ -45,6 +45,21 @@ No impact on compat across NAND types.
 
 # Weekly Report
 
+## IP 评审
+
+开发 sdc，撰写 Lint、CDC 报告，编写评审 PPT，并在会上通过 review。
+编写会议记录，并根据会上意见完善任务。
+
+## TrustEngine
+
+DBG 后仿 fail 问题，有寄存器无复位值导致。开发脚本从 pt 抓取全部无复位值寄存器提交验证。迭代脚本抓取全部无复位值寄存器 QN[x]，Q[x]引脚便于验证同事使用
+编写全部 testcase 描述并列入验证表格
+
+## SMC
+
+编写顶层 Tie-off 情况报告并 review
+支持蔡紫阳 ecc mode 为 01 时 ecc 使用方式
+
 # To-do
 
 DEFMA
