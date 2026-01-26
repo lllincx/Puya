@@ -116,8 +116,8 @@ M33视为CPU，M55无TrustZone功能，视为非CPU，但具备特权功能。
 |     |       | 特权定义  | MPU                 | MPU              | MPU            | MPU                                | MPU        |
 |     |       | 特权过滤  | MPU                 | MPU              | MPU            | MPU                                | MPU        |
 |     |       | CID定义 | 固定                  | 不定义              | 不定义            | 不定义                                | 不定义        |
-|     | 非 CPU | 安全定义  | RIMU                | MSAU + bm-MPU    | MSC + IDAU     | TZSC                               | MSC + IDAU |
-|     |       | 安全过滤  | 不过滤                 | bm-MPU           | 不过滤            | 不过滤                                | 不过滤        |
+|     | 非 CPU | 安全定义  | RIMU                | MSAU + bm-MPU    | MSC            | TZSC                               | MSC        |
+|     |       | 安全过滤  | 不过滤                 | MSAU + bm-MPU    | MSC + IDAU     | 不过滤                                | MSC + IDAU |
 |     |       | 特权定义  | RIMU                | bm-MPU           | 不定义            | TZSC                               | 不定义        |
 |     |       | 特权过滤  | 不过滤                 | bm-MPU           | 不过滤            | 不过滤                                | 不过滤        |
 |     |       | CID定义 | RIMU                | 不定义              | 不定义            | 不定义                                | 不定义        |
@@ -131,3 +131,9 @@ M33视为CPU，M55无TrustZone功能，视为非CPU，但具备特权功能。
 |     | 非感知外设 | 从机过滤  | RISUP               | TrustZone Filter | PPC            | Bridge                             |            |
 |     | 过滤属性  |       | 安全，特权，CID           | 安全，特权            | 安全             | 安全，特权                              |            |
 | 备注  |       |       | 感知外设为RIF感知，其他均为TZ感知 |                  | APB PPC具有mux功能 |                                    |            |
+
+
+## 表格变更情况
+
+非cpu的安全定义由该主机连接的msc的cfg位决定，与idau无关。
+非cpu有安全过滤，过滤组件是msc，msc查idau表执行过滤。
