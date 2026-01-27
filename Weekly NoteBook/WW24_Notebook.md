@@ -32,7 +32,7 @@
 
 otp_init_value 问题解决
 
-![65b60e89e2f4717389d1990ae771ae08](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/65b60e89e2f4717389d1990ae771ae08.png)
+![65b60e89e2f4717389d1990ae771ae08](https://pic.lllincx.cn/65b60e89e2f4717389d1990ae771ae08.png)
 ```
 otp init value access begin
 493d0010

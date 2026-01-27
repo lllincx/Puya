@@ -56,7 +56,7 @@ DBG 全部外包 case：目前 fpga sim 外包的 case pass，fail 函数失效�
 [[TrustEngine OTP WR Req]]
 参与OTP会议，讨论存储空间变更
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250807094157796.png)
+![image.png|600](https://pic.lllincx.cn/20250807094157796.png)
 
 
 

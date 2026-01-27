@@ -1,4 +1,4 @@
-![SMC存储块划分.png|300](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/SMC%E5%AD%98%E5%82%A8%E5%9D%97%E5%88%92%E5%88%86.png)
+![SMC存储块划分.png|300](https://pic.lllincx.cn/SMC%E5%AD%98%E5%82%A8%E5%9D%97%E5%88%92%E5%88%86.png)
 
 
 ```

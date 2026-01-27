@@ -8,13 +8,13 @@ DMA-350 可以拥有多个通道，这些通道可以具有不同的属性（如
 
 下图展示了系统中的 DMA-350：
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260105143202182.png)
+![image.png|600](https://pic.lllincx.cn/20260105143202182.png)
 
 ### 3.1 组件概览
 
 下图展示了 DMA-350 的顶层组件框图：
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260105144020746.png)
+![image.png|600](https://pic.lllincx.cn/20260105144020746.png)
 
 DMA-350 包含以下主要模块：
 
@@ -401,7 +401,7 @@ DMAC 还具备检测存储器传输期间错误的能力。当接收到故障时
 
 传输大小设置范围从字节到总线宽度，按 2 的幂次方递增。源端和目的端的传输大小相同。源地址和目的地址与传输大小对齐，因为根据 **TRANSIZE** 的值，低位地址位会在内部被忽略。要复制的传输数量以传输大小的增量来指定。软件还可以限制 DMAC 发送到总线的最大突发长度（Maximum burst length），以允许互连上的其他设备进行仲裁。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260119150218093.png)
+![image.png|600](https://pic.lllincx.cn/20260119150218093.png)
 
 | **参数名称**          | **寄存器映射条目**                 | **描述**                                                                                                                       |
 | --------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -493,8 +493,8 @@ SRCXSIZE < DESXSIZE 根据回绕类型的选择，行为如下：
 - 增量设置为零可，实现类外设（peripheral-like）访问
 - 增量寄存器为 16 位补码，可为负数
 
-  ![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260119151912875.png)
-  ![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260119151919318.png)
+  ![image.png|600](https://pic.lllincx.cn/20260119151912875.png)
+  ![image.png|600](https://pic.lllincx.cn/20260119151919318.png)
 
 ## 5.3 DMAC 操作扩展命令
 
@@ -521,14 +521,14 @@ SRCXSIZE < DESXSIZE 根据回绕类型的选择，行为如下：
 | **1D 回绕类型**        | `CH(x)_CTRL.XTYPE`                 | 该配置寄存器决定在源和目的 X 长度不等时如何处理 1D 操作。在 2D 操作中，该寄存器的重要性增加，因为某些 1D 回绕操作仅影响 2D 操作。 |
 
 在以下示例中，源端和目的端的大小相等。如果设置不同，可能会发生各种回绕（Wrap）情况，这些情况在启用 WRAP 选项时受支持。在执行 2D 传输时，利用 `XADDRINC` 还可以对拷贝的图像进行微小的变换处理。
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260119155954327.png)
+![image.png|600](https://pic.lllincx.cn/20260119155954327.png)
 
 **带 X 增量的 2D 传输**
 
 - 在目的地将带有间隙（Gapped）的数据拷贝到指向同一地址的 FIFO
 - `DESYADDRSTRIDE` 为负值
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260119161243388.png)
+![image.png|600](https://pic.lllincx.cn/20260119161243388.png)
 
 **信号处理**
 如果 `abs(YADDRSTRIDE)` 的值小于 `abs(XSIZE * XADDRINC)`（考虑负值情况），可能会出现特殊的边缘情况。在这些场景下，相同或轻微偏移的数据会被多次读取，或者同一个目的区域会被重复覆盖。这在信号处理（例如 FFT 或 DCT）中非常有用，因为时域中的多个样本需要被组合并用于频域处理。
@@ -536,7 +536,7 @@ SRCXSIZE < DESXSIZE 根据回绕类型的选择，行为如下：
 **图像编辑**
 利用负增量还可以实现特殊的 2D 图像拷贝功能，如镜像（Mirroring）、旋转（Rotating）或转置（Transposing）图像。通过将 `XADDRINC` 设置为大于 `YADDRSTRIDE`，并选择任意位置作为目的地址起始点，可以改变 X 和 Y 的方向。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260119161420604.png)
+![image.png|600](https://pic.lllincx.cn/20260119161420604.png)
 
 ### 5.3.2 2D 模式下的 WRAP
 
@@ -618,7 +618,7 @@ SRCYSIZE < DESYSIZE
 - **YTYPE: wrap**：地址计数器发生回绕，开始将源数据的开头部分拷贝到目的内存的剩余位置。
 - **YTYPE: fill**：使用填充数据填充剩余的 Y 行。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260119165955567.png)
+![image.png|600](https://pic.lllincx.cn/20260119165955567.png)
 
 SRCXSIZE > DESXSIZE
 
@@ -630,7 +630,7 @@ SRCXSIZE > DESXSIZE
   - **XTYPE: continue**：源行中的剩余数据会连续写入目的端的下一行。超出目的端范围的最后几拍数据将不被拷贝。
   - **YTYPE: continue, wrap, fill**：目的高度小于源高度，拷贝在目的区域填满时停止。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260119171227429.png)
+![image.png|600](https://pic.lllincx.cn/20260119171227429.png)
 
 - SRCYSIZE < DESYSIZE：
   拷贝到形状不同的区域（目的端 X 更窄，但 Y 更高）。这种数据重塑（Reshaping）可以通过选择 1D 和 2D 回绕类型来处理。
@@ -749,7 +749,7 @@ DMA-350 通过 `ack` 信号告知外设已收到请求。限定信号总线 `ack
 当命令触发的请求撤销时，DMAC 会尽快撤销应答，以便触发发送方继续其操作。
 
 以下是 DMAC 在使用命令触发时的应答撤销时序说明：
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260121102840147.png)
+![image.png|600](https://pic.lllincx.cn/20260121102840147.png)
 
 - **t0**：触发接口处于 IDLE（空闲）。
 - **t1**：外设请求任意类型的触发以启动命令。
@@ -764,12 +764,12 @@ DMA-350 通过 `ack` 信号告知外设已收到请求。限定信号总线 `ack
 
 触发输入还可用于流控制目的，即每次触发仅使能大型命令中的一小部分传输。在此模式下，软件必须设置**触发尺寸（trigger size）**，它规定了每次触发事件所允许访问的“传输位宽块”的数量。源端触发输入用于控制读流，而目的端触发输入则控制 DMA 操作的写流。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260120173606604.png)
+![image.png|600](https://pic.lllincx.cn/20260120173606604.png)
 
 - **读写同步逻辑**：读传输只有在接收到目的端命令触发和源端触发后才能开始。目的端的写操作只有在从源端接收到足够的数据后才能开始。
 - **读操作停滞**：当源端触发设置为流控制模式时，DMA 通道的读操作会停滞，直到接收到第一个触发请求。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260120173612727.png)
+![image.png|600](https://pic.lllincx.cn/20260120173612727.png)
 
 图中显示，尽管目的端触发请求先到达，但命令仍必须等待源端触发到达。在接收到源端命令触发后，读传输立即开始。只有在接收到目的端触发且有足够数据待发送时，写操作才会开始。DMAC 会在其内部 FIFO 中预加载数据，以便在接收到下一个目的端触发时，写操作能尽快发生。
 
@@ -783,7 +783,7 @@ DMA 通道在断言（assert）应答之前，会等待所有响应事务到达�
 
 **块触发（Block Triggers）下的应答撤销时序（t0-t4）：**
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260121102941727.png)
+![image.png|600](https://pic.lllincx.cn/20260121102941727.png)
 
 - **t0**：触发接口处于 IDLE。
 - **t1**：外设请求 BLOCK 或 SINGLE 触发类型。

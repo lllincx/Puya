@@ -39,7 +39,7 @@
 
 > 这种读写性质我在 5 月 26 日 case 说明中强调过。
 >
-> ![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250619094003157.png)
+> ![image.png|600](https://pic.lllincx.cn/20250619094003157.png)
 
 # 密钥可读的安全问题
 
@@ -50,4 +50,4 @@
 
 密钥在非DR生命周期可以在 SCA 模块中被调用，DR生命周期密钥被清除。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250619095301618.png)
+![image.png|600](https://pic.lllincx.cn/20250619095301618.png)

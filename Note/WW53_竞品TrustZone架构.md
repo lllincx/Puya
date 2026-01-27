@@ -5,7 +5,7 @@
 
 ## N6
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251225161503759.png)
+![image.png|600](https://pic.lllincx.cn/20251225161503759.png)
 
 ### 主机
 
@@ -26,7 +26,7 @@ CID：固定
 
 ## 瑞萨
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251225161517670.png)
+![image.png|600](https://pic.lllincx.cn/20251225161517670.png)
 
 ### 主机
 
@@ -49,7 +49,7 @@ Type2：TrustZone 兼容，安全属性不统一。包含存储器，系统控�
 
 ## Arm
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251225161544166.png)
+![image.png|600](https://pic.lllincx.cn/20251225161544166.png)
 
 **CPU**
 安全属性定义：IDAU+SAU
@@ -67,14 +67,14 @@ APB 接口外设，APB PPC 有 mux 功能，在 PPC 中检查所有下属外设�
 
 # ifineon
 
-![image.png|600|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251226154933925.png)
+![image.png|600|600](https://pic.lllincx.cn/20251226154933925.png)
 ## 主机
 
 M33视为CPU，M55无TrustZone功能，视为非CPU，但具备特权功能。
 其他基本与arm推荐一致
 ## U5
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251225161436684.png)
+![image.png|600](https://pic.lllincx.cn/20251225161436684.png)
 
 ### 主机
 

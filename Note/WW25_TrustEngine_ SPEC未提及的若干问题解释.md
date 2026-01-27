@@ -6,11 +6,11 @@ Key Ladder（密钥阶梯）是一种在加密系统中用于安全管理和派�
 
 国家行业标准：[可下载条件接收系统技术规范](https://www.nrta.gov.cn/module/download/downfile.jsp?spm=chekydwncf.0.0.1.HYsXqs&classid=0&showname=GYT%20255-2024%E3%80%8A%E5%8F%AF%E4%B8%8B%E8%BD%BD%E6%9D%A1%E4%BB%B6%E6%8E%A5%E6%94%B6%E7%B3%BB%E7%BB%9F%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83%E3%80%8B.pdf&filename=114fb5fe3d2b4c748e86b5e4630056cc.pdf)，见附件一。
 
-![Pasted image 20250527172800](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250527172800.png)
+![Pasted image 20250527172800](https://pic.lllincx.cn/Pasted%20image%2020250527172800.png)
 
 国际技术标准：[ETSI TS 103 162 V1.1.1](https://www.etsi.org/deliver/etsi_ts/103100_103199/103162/01.01.01_60/ts_103162v010101p.pdf)
 
-![Pasted image 20250527172101](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250527172101.png)
+![Pasted image 20250527172101](https://pic.lllincx.cn/Pasted%20image%2020250527172101.png)
 
 #### 二、SCA 输入数据非整数问题
 

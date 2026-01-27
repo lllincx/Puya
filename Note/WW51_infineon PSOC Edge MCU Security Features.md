@@ -6,7 +6,7 @@ PSOC™ Edge MCU 是一款多核器件，包含两个 CPU（Cortex®-M33 和 Cor
 
 另外两个 CPU，CM33 和 CM55，完全可由用户应用程序访问。CM33 支持 Arm® TrustZone，允许同时存在安全编程环境（SPE）和非安全编程环境（NSPE）。虽然使用的是单个 CPU，但可以创建独立的 SPE 和 NSPE 项目。CM55 是最高性能的 CPU，旨在运行开发者的大部分应用程序。CM33 和 CM55 都可以访问大多数相同的外设模块，因此开发者可以挑选由哪两个 CPU（CM33 和 CM55）控制哪些功能和硬件模块。图 1 显示了基本的编程环境，不包括外设。如上所述，用户应用程序只能在 CM33 或 CM55 CPU 上运行。
 
-![image.png|600|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251215111310150.png)
+![image.png|600|600](https://pic.lllincx.cn/20251215111310150.png)
 
 代码可以存储在本地的内部 RRAM 或外部 Flash 器件中。代码执行可以直接在存储代码的非易失性存储器（NVM）位置运行，也可以在运行时移动到不同位置以提高性能。例如，CM55 可以从外部 Flash、内部 RRAM、系统 SRAM（SoCMEM）或 ITCM 执行代码。如果在系统 SRAM（SoCMEM）或 ITCM 中执行，必须作为启动固件的一部分将其复制到该位置。
 

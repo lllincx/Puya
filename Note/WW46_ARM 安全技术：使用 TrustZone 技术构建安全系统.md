@@ -379,7 +379,7 @@ ARMv6/ARMv7 的 L1 翻译表描述符（descriptor）格式包含一个 NS 字�
 
 就安全状态而言，缓存内容是动态的。任何未锁定（non-locked down）的缓存行都可能为新数据腾挪而被替换（evict），不论其安全状态为何。也就是说，Secure 行可以驱逐 Non-secure 行，Non-secure 行也可以驱逐 Secure 行。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251105111423846.png)
+![image.png|600](https://pic.lllincx.cn/20251105111423846.png)
 
 把以上各概念合在一起，图 3-2 展示了一个理论上的 ARM 处理器在访问内存系统时，其 L1 存储系统如何处理与安全扩展相关的状态。
 
@@ -402,7 +402,7 @@ ARM 推荐模型是：将 IRQ 用作普通世界中断，将 FIQ 用作安全世
 
 > 建议 Monitor 始终在屏蔽中断（masked）状态下执行。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251105153215182.png)
+![image.png|600](https://pic.lllincx.cn/20251105153215182.png)
 
 （图 3-3：一种在将 IRQ 配置为非安全中断时的可能路由方案）
 
@@ -555,7 +555,7 @@ ARM 的系统级调试方案是 CoreSight™ 片上调试与跟踪技术。它�
 
 每个 AXI-to-APB 桥都提供一个 AXI 从接口，可在其本地 APB 总线上仲裁最多 16 个外设的访问。桥内部包含地址译码逻辑，依据传入的 AXI 事务生成 APB 外设选择信号。为实现安全控制，桥为总线上每个外设提供一根 TZPCDECPROT 输入信号，用于指示该外设被配置为 Secure 还是 Non-secure；当目标地址属于 Secure 外设地址范围时，桥会拒绝 Non-secure 事务。
 
-这些桥接器输入信号既可以在综合（synthesis）时固定连接，也可以通过可信外设（例如 TrustZone Protection Controller, TZPC）动态控制，以便在运行时实现安全状态的动态切换。![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251106141915476.png)
+这些桥接器输入信号既可以在综合（synthesis）时固定连接，也可以通过可信外设（例如 TrustZone Protection Controller, TZPC）动态控制，以便在运行时实现安全状态的动态切换。![image.png|600](https://pic.lllincx.cn/20251106141915476.png)
 
 图 4-1：使用 TZPC 控制 SoC 上的安全信号  
 图 4-1 展示了一个控制 4 个外设的 AXI-to-APB 桥。其中 TZPC 被配置为始终为 Secure，Timers 与 RTC 被配置为始终为 Non-secure，而 KMI（Keyboard and Mouse Interface） 的安全状态则可由软件可编程控制。Secure 世界的软件可以在运行时对 TZPC 进行编程，改变送往 AXI-to-APB 桥的信号，从而把 KMI 在 Secure 与 Non-secure 之间切换。
@@ -848,7 +848,7 @@ CP15 的 SCR（Secure Configuration Register）包含控制项，用于决定 IR
 
 一种做法是把 Secure world 固定绑定到某一特定处理器。这会使安全中断路由更简单，但也意味着安全世界会占用该核的时间，Normal world 的线程调度可能因此难以负载均衡。在这种设计里，与安全世界通信的 Normal world 驱动通常需要通过核间通信（IPC/IPI）把对安全世界的请求路由到正确的处理器。此外，未被安全世界占用的那些处理器上的 Monitor 软件必须阻止 Normal world 触发恶意的世界切换。  
 该体系结构如图 5-3（5-14 页）所示，安全世界只在 CPU0 上运行。
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251107155118782.png)
+![image.png|600](https://pic.lllincx.cn/20251107155118782.png)
 
 另一种做法是允许安全世界在多颗处理器之间迁移，但限制为任意时刻仅在一颗处理器上执行。这样做让安全世界更高效：它可以与发起请求的 Normal world 应用运行在同一核，同时也方便 Normal world 做负载均衡；但其代价是如何把安全中断路由到需要的处理器会更复杂。
 

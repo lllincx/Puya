@@ -18,21 +18,21 @@
 
 SMC 内部不按字节利用 axi 总线提供的 wstrb 信号，而是或在一起使用，进而无法实现只编程 1 字节的目的。
 
-![image.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250926112611530.png)
+![image.png](https://pic.lllincx.cn/20250926112611530.png)
 
-![image.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250926144033510.png)
+![image.png](https://pic.lllincx.cn/20250926144033510.png)
 
 为此需要在 axi 指令输入 SMC 前将 awsize MUX 为 0，即每次传输宽度为 1 字节（8bit）
 
 ### 实测波形
 `syscfg16=1`
 
-![image.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250926155317272.png)
+![image.png](https://pic.lllincx.cn/20250926155317272.png)
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250926155321198.png)
+![image.png|600](https://pic.lllincx.cn/20250926155321198.png)
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250926155328349.png)
+![image.png|600](https://pic.lllincx.cn/20250926155328349.png)
 
 `syscfg16=0`
 
-![image.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250926155821601.png)
+![image.png](https://pic.lllincx.cn/20250926155821601.png)

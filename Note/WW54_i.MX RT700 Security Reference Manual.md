@@ -137,7 +137,7 @@ IP 保护是一系列用于保护存储在设备上的重要代码和数据机�
 
 #### 3.3 生命周期状态
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260104155303165.png)
+![image.png|600](https://pic.lllincx.cn/20260104155303165.png)
 
 下表列出了生命周期状态，并显示了每个状态下的调试/测试端口可用性和资产访问权限。更多信息请参考熔丝图（Fusemap）。
 
@@ -557,7 +557,7 @@ CPU 可以从 CPU-S 状态通过执行新引入的指令来调用 NS 应用程�
 Armv8-M TrustZone 的实现由安全归属单元（SAU）和实现定义归属单元（IDAU）组成。设备归属单元（DAU）通过 IDAU 接口连接到 CPU0。
 
 SAU 和 IDAU 的组合为来自 CPU0 的特定地址分配特定的安全属性（S、NS 或 NSC）。来自 CPU0 的访问（取决于其安全状态以及由 IDAU 和 SAU 设置的结果安全属性）随后将由安全 AHB 控制器与特定的检查器进行比较，该检查器标记了存储器和外设的各种访问策略。
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20260105135720460.png)
+![image.png|600](https://pic.lllincx.cn/20260105135720460.png)
 
 #### 11.3.2.1 设备归属单元 (Device Attribution Unit)
 

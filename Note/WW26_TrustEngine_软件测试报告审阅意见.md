@@ -2,13 +2,13 @@
 
 这是由于测试结论是对 shanhai 整个 IP 来讲的测试结论吗？看起来不是的。
 似乎是一个子模块的报告是另外一个作为模板，最终测试结论部分没有修改。
-![image.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250626095204961.png)
+![image.png](https://pic.lllincx.cn/20250626095204961.png)
 
-![image.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250626095344293.png)
+![image.png](https://pic.lllincx.cn/20250626095344293.png)
 
 # 二、测试数据对应问题
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250626095815760.png)
+![image.png|600](https://pic.lllincx.cn/20250626095815760.png)
 
 # 三、SCA 未测试 SM4 算法
 

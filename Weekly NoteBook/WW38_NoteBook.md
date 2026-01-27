@@ -81,10 +81,10 @@
 - 在 fmc 模块不做修改下，调整 OTP cofig 宏定义使用户安全区符合设计意图。并测试读写权限。
 
 **OTP Case**
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250924115047225.png)
+![image.png|600](https://pic.lllincx.cn/20250924115047225.png)
 
 **调整 OTP cofig 宏定义使用户安全区符合设计意图**
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250924115108724.png)
+![image.png|600](https://pic.lllincx.cn/20250924115108724.png)
 
 # To-do
 

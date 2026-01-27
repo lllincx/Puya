@@ -17,5 +17,5 @@ dmc，需要等待验证方面写好 dmc_init 函数，目前 case 中已完成�
 
 时擎 case 已验证通过
 需要在仿真阶段配置的 TRNG 内容已经更新
-![Pasted image 20250617150133](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250617150133.png)
+![Pasted image 20250617150133](https://pic.lllincx.cn/Pasted%20image%2020250617150133.png)
 移植完成，仿真通过

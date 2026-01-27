@@ -12,6 +12,6 @@
 
 ## 工作输出
 
-![Pasted image 20250513110304.png](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250513110304.png)
+![Pasted image 20250513110304.png](https://pic.lllincx.cn/Pasted%20image%2020250513110304.png)
 
-![Pasted image 20250513110400](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250513110400.png)
+![Pasted image 20250513110400](https://pic.lllincx.cn/Pasted%20image%2020250513110400.png)

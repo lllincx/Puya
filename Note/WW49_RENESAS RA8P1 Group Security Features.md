@@ -67,7 +67,7 @@ Arm TrustZone 技术将系统和应用划分为安全域和非安全域。
 - 安全事务只能使用安全区域地址发起
 - 非安全事务只能访问非安全存储器和资源
 - 非安全事务只能使用非安全区域地址发起。
-  ![image.png|500](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251201145836648.png)
+  ![image.png|500](https://pic.lllincx.cn/20251201145836648.png)
 
 ## 52.3.2 特权控制 (Privileged Control)
 
@@ -91,7 +91,7 @@ IDAU 通过地址位 [28] 将代码、SRAM 和外设区域定义为安全别名�
 ### 52.3.3.2 主安全属性单元 (MSAU)
 
 MSAU 是用于定义除 CPU 以外的主设备 (Master) 的系统特定安全地址映射的 IDAU。MSAU 定义了安全和非安全别名区域，但不定义非安全可调用 (NSC) 和区域编号。除 CPU 以外的主设备可以使用由 MSAU 定义的安全别名地址来发起安全事务。但是，禁止非安全主设备利用安全别名区域中的地址来发起安全事务。由 MSAU 定义的安全映射固定在硬件中，无法通过软件更改。
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251201150706866.png)
+![image.png|600](https://pic.lllincx.cn/20251201150706866.png)
 
 ### 52.3.3.3 安全属性单元 (SAU)
 
@@ -102,14 +102,14 @@ SAU 是一个用于确定地址安全属性的可编程单元。SAU 仅可在安
 1. IDAU 中设置为 NS (非安全) 属性的区域，在 SAU 中也必须设置为 NS。
 2. 在 IDAU 定义为 NSC 的任何区域内，必须至少创建一个 NSC 区域。
 3. 如果不想使用 TrustZone 定义任何隔离，请不要更改 `SAU_CTRL.ALLNS = 0` 和 `SAU_CTRL.ENABLE = 0`（初始值）。
-   ![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251201150813609.png)
-   ![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251201150858539.png)
+   ![image.png|600](https://pic.lllincx.cn/20251201150813609.png)
+   ![image.png|600](https://pic.lllincx.cn/20251201150858539.png)
 
 ### 52.3.3.4 区域编号 (Region Number)
 
 SAU 和 IDAU 还为每个存储区域和安全属性定义了区域编号。软件使用该区域编号来确定连续的内存范围是否共享相同的安全属性。
 
-![image.png|300](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251201154226001.png)
+![image.png|300](https://pic.lllincx.cn/20251201154226001.png)
 
 ### 52.3.3.5 TrustZone 过滤器的存储器安全属性
 
@@ -126,7 +126,7 @@ SAU 和 IDAU 还为每个存储区域和安全属性定义了区域编号。软�
 - 安全属性由专用的安全属性寄存器设置，仅允许通过安全访问写入。
 - 最多可划分为两个区域。
 
-![image.png|400](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251201155743028.png)
+![image.png|400](https://pic.lllincx.cn/20251201155743028.png)
 
 ### 52.3.3.6 CPU 安全属性
 
@@ -162,7 +162,7 @@ SAU 和 IDAU 还为每个存储区域和安全属性定义了区域编号。软�
 | **RMA_ACK**                  | 退料授权已确认 。瑞萨进行故障分析。                 | PL2                             | 在安全和非安全调试中可用      | 可用<br>_(无法访问代码 MRAM/SiP Flash 区域)_ | 可用                                 |
 | **RMA_RET**                  | 退料授权返回. <br>设备已返回给客户。设备无法启动。  | PL0                             | 不可用                        | 不可用                                       | 不可用                               |
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251201162432665.png)
+![image.png|600](https://pic.lllincx.cn/20251201162432665.png)
 
 ## 52.4.1 更改生命周期状态 (Changing the Lifecycle State)
 
@@ -208,7 +208,7 @@ $$\text{Authentication code} = \text{AES-128 CMAC} (\text{RMA\_KEY}, \text{128-b
 - 保护等级 (PL) 和认证等级 (AL) 决定了调试功能和串行编程接口的可用性。
 - 仅 OEM 生命周期状态下，才可以更改 PL 和 AL。
 - AL 表示一种临时的认证状态，并在 MCU 上电复位后初始化为 PL。PL 和 AL 仅能由启动固件 (Boot Firmware) 修改，应用程序无法对其进行更改。
-  ![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251203103630337.png)
+  ![image.png|600](https://pic.lllincx.cn/20251203103630337.png)
 
 | **认证级别 (AL)** | **调试功能**                                                       | **串行编程接口**                                                        |
 | ----------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------- |
@@ -282,12 +282,12 @@ MCU 内部会解封用户密钥，并使用 MCU 的**硬件唯一密钥 (HUK)** 
 
 图 52.9 展示了密钥注入的示例，表 52.8 展示了可注入的密钥。
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251204135604147.png)
+![image.png|600](https://pic.lllincx.cn/20251204135604147.png)
 
 # 52.6 安全工厂编程 (Secure Factory Programming)
 
 MCU 还支持对密文格式的固件镜像进行编程，以防止资产在生产编程期间泄露。这使得在非安全环境下的安全工厂编程成为可能。安全工厂编程由启动固件支持。与安全密钥注入类似，安全工厂编程具有类似的流程。
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251204141548695.png)
+![image.png|600](https://pic.lllincx.cn/20251204141548695.png)
 
 1. 客户使用 UFPK 封装镜像加密密钥 (Image Encryption Key)
 2. 使用镜像加密密钥通过 AES128-CCM 算法对镜像进行加密。
@@ -329,7 +329,7 @@ OEM_BL 的验证发生在两个时间点：**初始编程时**以及**每次执�
 `OEM_BL` 验证成功后，会生成 `OEM_BL` 和代码证书的 HMAC 值（称为`OEM_BL_digest`）并将其编程到 MRAM 中
 HMAC 密钥派生自 **HUK (硬件唯一密钥)**，因此每个 MCU 生成的 HMAC 值都是独一无二的
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20251208111644655.png)
+![image.png|600](https://pic.lllincx.cn/20251208111644655.png)
 
 ## 执行时的验证
 

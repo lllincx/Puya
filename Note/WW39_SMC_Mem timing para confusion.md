@@ -14,20 +14,20 @@ clr/ar/rr rea diff from device and ctrl name and
 nor tpc的用法，似乎应用场景是突发读写。目前我们现有的case是在C代码里递增的。所以要测试这个需要开发case：要求smc突发读写存储器，但现有nor flash model与fpga器件均不支持突发。
 
 
-![image.png|400](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250928094714132.png)
+![image.png|400](https://pic.lllincx.cn/20250928094714132.png)
 
 #### Hex Sim Rpt for diff tpc
 
-![image.png|400](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250928094621959.png)
+![image.png|400](https://pic.lllincx.cn/20250928094621959.png)
 
 
 tpc=3
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250924132741460.png)
+![image.png|600](https://pic.lllincx.cn/20250924132741460.png)
 
 tpc=2
 
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250924132715988.png)
+![image.png|600](https://pic.lllincx.cn/20250924132715988.png)
 
 ### 关于Ttr case构建的情况
 

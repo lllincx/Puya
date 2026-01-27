@@ -14,7 +14,7 @@ Table 2-24 NAND flash address input example awaddr fields
 | [10:3]      | CMD1        | -                      |
 | [2:0]       | 3'b000      | Address alignment      |
 
-![image.png|800](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250626154200343.png)
+![image.png|800](https://pic.lllincx.cn/20250626154200343.png)
 
 > CMD1 为起始命令，CMD2 为结束命令。两者一般有其中一个
 
@@ -34,7 +34,7 @@ W29N01HV 的页编程命令将按页地址从低到高的顺序在块内连续�
 
 当器件状态转为就绪时，状态寄存器第 0 位（1/00）显示编程操作结果：成功（位 0=0）或失败（位 0=1）（参见图 9-6）。命令寄存器将保持读状态模式直至接收到下一条指令。
 
-![image.png|800](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250626154634194.png)
+![image.png|800](https://pic.lllincx.cn/20250626154634194.png)
 
 # 代码
 
@@ -63,6 +63,6 @@ ISB();
 
 # 波形
 
-![Snipaste_2025-06-26_15-42-47-modified.png|800](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Snipaste_2025-06-26_15-42-47-modified.png)
+![Snipaste_2025-06-26_15-42-47-modified.png|800](https://pic.lllincx.cn/Snipaste_2025-06-26_15-42-47-modified.png)
 配置的 add_num=5[该配置与 nand 大小相关]
 因此，`smc_nand_cmd(nand_addr_match, 0x5, 0x0, 0x0, 0x80, 0x0, wdata)`命令需要分两次传输地址，第一次传输低四位，第二次传输高位

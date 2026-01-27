@@ -14,7 +14,7 @@
 
 完成以上修改之后，我们再看【**otp 本该无法写入，fpga 仿真结果显示可以写入**】的问题是否仍旧存在。
 
-![Pasted image 20250527142158](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Pasted%20image%2020250527142158.png)
+![Pasted image 20250527142158](https://pic.lllincx.cn/Pasted%20image%2020250527142158.png)
 
 ---
 

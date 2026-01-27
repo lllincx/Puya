@@ -41,13 +41,13 @@ NorAddr[26:0]={A[25:0], Q[15]}
 **flash端口含义:**
 A 端口数据为字地址，A 端口数据左移一位为字节地址。
 Q 端口数据为输出数据。
-![image.png|700](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250908144707717.png)
+![image.png|700](https://pic.lllincx.cn/20250908144707717.png)
 
 **修改内容**
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250908150859932.png)
+![image.png|600](https://pic.lllincx.cn/20250908150859932.png)
 
 **实现代价**
-![Snipaste_2025-09-08_15-27-09.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Snipaste_2025-09-08_15-27-09.png)
+![Snipaste_2025-09-08_15-27-09.png|600](https://pic.lllincx.cn/Snipaste_2025-09-08_15-27-09.png)
 
 ---
 
@@ -61,19 +61,19 @@ Q 端口数据为输出数据。
 A 端口数据为字地址，【A 端口数据+Q 端口高位】为字节地址。
 Q 端口数据忽略高位为输出数据
 
-![image.png|700](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250908145328588.png)
+![image.png|700](https://pic.lllincx.cn/20250908145328588.png)
 
 **修改内容**
-![image.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/20250908150117736.png)
+![image.png|600](https://pic.lllincx.cn/20250908150117736.png)
 
 **实现代价**
-![Snipaste_2025-09-08_15-27-37.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Snipaste_2025-09-08_15-27-37.png)
+![Snipaste_2025-09-08_15-27-37.png|600](https://pic.lllincx.cn/Snipaste_2025-09-08_15-27-37.png)
 
 ### 5. 结果
 
 两种解决方案实施后，仿真均通过，同时 word 访问未受影响。两种方案均上传 git。
 
-![Snipaste_2025-09-08_15-30-51.png|600](https://lincx-img.oss-cn-shanghai.aliyuncs.com/img/Snipaste_2025-09-08_15-30-51.png)
+![Snipaste_2025-09-08_15-30-51.png|600](https://pic.lllincx.cn/Snipaste_2025-09-08_15-30-51.png)
 
 ### 6. 对 FPGA 的指示
 
