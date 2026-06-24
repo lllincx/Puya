@@ -2,7 +2,12 @@
 
 ###   TZC
 
-- 
+- rename gmac to eth
+- debug intr clr
+- mpc intr enable config
+	- from TZC intr_en
+	- tie 1
+
 
 ### DMAX
 
@@ -11,7 +16,11 @@
 - 协助esmc ospi连接dmax
 - 开发trigger wrapper，连接ospi
 
-## Project Progess
+### SMC
+
+- disable
+
+### Other
 
 - support mcu debug
 - support gpio nonsecen
@@ -22,12 +31,13 @@
 
 ### Highlight
 
-- 
+- 协助esmc ospi连接dmax
+- 开发trigger wrapper，连接ospi
 
 ### Lowlight
 
 
-- 
+- debug tzc intr clr commit多次才解决
 
 ### Help Needed
 
@@ -37,5 +47,6 @@
 ### Next Plan
 
 
-- 
-- 
+- TE review with ARMCN
+- DMAX review
+- Lint and CDC report

@@ -34,18 +34,12 @@ run -t system/tc_c_sanity_tarmac -c 1
 ## TODO
 
 1. DMAX UM
-1. 开发DMA trigger mux
+1. te review report
+1. tzc review report
+1. dmax review report
+1. week report
 
 
 
-设计事项一：syscfg设置trigger连接关系
-
-请求事项：arm通用触发连接做法。
-
-
-
-
-
-NPU MPU intr en
 
 
