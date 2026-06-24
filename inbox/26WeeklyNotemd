@@ -1,0 +1,48 @@
+## Work Conclusion
+
+###   TZC
+
+-  review
+- debug intr en
+
+### DMAX
+
+- debug connect to ospi: trigger sec attr unconfig
+
+### TE
+
+- review
+- review with arm
+- replace stdcell
+- support fpga
+
+### Other
+
+- support mcu debug
+- support gpio nonsecen
+
+---
+
+# Project Progess
+
+### Highlight
+
+- 协助esmc ospi连接dmax
+- 开发trigger wrapper，连接ospi
+
+### Lowlight
+
+
+- debug tzc intr clr commit多次才解决
+
+### Help Needed
+
+
+- 
+
+### Next Plan
+
+
+- TE review with ARMCN
+- DMAX review
+- Lint and CDC report

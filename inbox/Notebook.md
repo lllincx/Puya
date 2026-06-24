@@ -34,10 +34,15 @@ run -t system/tc_c_sanity_tarmac -c 1
 ## TODO
 
 1. DMAX UM
-1. te review report
 1. tzc review report
 1. dmax review report
-1. week report
+1. 绩效评估
+1. replace std cell
+1. arm review report with mail
+1. linux config备份
+1. vim ctrl p，括号成对 tab恢复
+1. te config 8192恢复
+1. te r2p2 SW pkg withdr
 
 
 
