@@ -8,6 +8,7 @@
 ### DMAX
 
 - debug connect to ospi: trigger sec attr unconfig
+- 告知葛睿对pclken加强验证
 
 ### TE
 
@@ -18,8 +19,8 @@
 
 ### Other
 
-- support mcu debug
-- support gpio nonsecen
+- update gpio table
+- PT105 UM
 
 ---
 
@@ -27,13 +28,12 @@
 
 ### Highlight
 
-- 协助esmc ospi连接dmax
-- 开发trigger wrapper，连接ospi
+- 
 
 ### Lowlight
 
 
-- debug tzc intr clr commit多次才解决
+- 
 
 ### Help Needed
 
@@ -43,6 +43,4 @@
 ### Next Plan
 
 
-- TE review with ARMCN
-- DMAX review
 - Lint and CDC report
