@@ -33,17 +33,7 @@ run -t system/tc_c_sanity_tarmac -c 1
 
 ## TODO
 
-1. DMAX UM
-
-1. linux config备份
-
-1. te r2p2 SW pkg withdr
-
-1. 注意关注pclken相关case波形是否符合需求
-
-1. 补充lint cdc报告
-
-	
+1. 
 
 
 
