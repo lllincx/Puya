@@ -197,7 +197,7 @@ TZSC 是 TrustZone 感知外设，这意味着安全和非安全寄存器同时�
 | **No** | **Master** |
 | ------ | ---------- |
 | 1      | Dubhe      |
-| 2      | GMAC       |
+| 2      | ETH        |
 | 3      | USBH1      |
 | 4      | USBH2      |
 | 5      | SDIO1      |
