@@ -2,7 +2,7 @@
 
 为满足后端需求，使用stdcell替换TrustEngine macro中的rm_syncflop。搭建简单验证环境测试通过；arm china人员检查通过；形式验证通过；执行trng case发现输出随机数随机性受影响，经arm china人员确认忽略
 
-![image-20260717151504977](https://pic.lllincx.cn/image-20260717151504977.png)
+<img src="https://pic.lllincx.cn/image-20260717151504977.png" alt="image-20260717151504977" style="zoom:50%;" />
 
 ### 背景
 
@@ -20,7 +20,7 @@
 
 ##### V1
 
-![image-20260717142722600](https://pic.lllincx.cn/image-20260717142722600.png)
+<img src="https://pic.lllincx.cn/image-20260717142722600.png" alt="image-20260717142722600" style="zoom: 50%;" />
 
 V1优点：实现相同逻辑基础上，节省三个反相器
 
@@ -28,7 +28,7 @@ V1优点：实现相同逻辑基础上，节省三个反相器
 
 郭老师建议不要在数据路径中反复取反，应采用V2
 
-![image-20260717142738572](https://pic.lllincx.cn/image-20260717142738572.png)
+<img src="https://pic.lllincx.cn/image-20260717142738572.png" alt="image-20260717142738572" style="zoom:50%;" />
 
 ### 验证方法
 
@@ -64,7 +64,7 @@ V2问题：局限于在测试中，在0时刻配置rstn为0，由于inv模块时
 
 case可以执行完毕，但输出随机数的随机性存在问题。跟arm 中国人员确认，仅影响仿真，可忽略。
 
-![talk_log_with_arm_china](https://pic.lllincx.cn/talk_log_with_arm_china.png)
+<img src="https://pic.lllincx.cn/talk_log_with_arm_china.png" alt="talk_log_with_arm_china" style="zoom: 50%;" />
 
 
 
@@ -72,8 +72,8 @@ case可以执行完毕，但输出随机数的随机性存在问题。跟arm 中
 
 1. SDFFSQN datasheet
 
-![image-20260717150751734](https://pic.lllincx.cn/image-20260717150751734.png)
+<img src="https://pic.lllincx.cn/image-20260717150751734.png" alt="image-20260717150751734" style="zoom: 50%;" />
 
 2. SDFFRPQ datasheet
 
-![image-20260717150833555](https://pic.lllincx.cn/image-20260717150833555.png)
+<img src="https://pic.lllincx.cn/image-20260717150833555.png" alt="image-20260717150833555" style="zoom:50%;" />
