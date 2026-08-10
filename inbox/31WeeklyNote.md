@@ -2,29 +2,24 @@
 
 ###   TZC
 
--  support can变更
--  UM更新
+-  适应new bus变更
+	-  添加esmc psram cfg
+	-  连接并配置ppc
 
-### DMAX
+### 其他
 
-- support VV trigger 内部连接问题
-- 检查pclken无误，等待case开发遍历pclken其他配置
-- support AE 可访问存储器问题
-
-### TE
-
-- 更换inv cell
-- support AE OTP TRNG问题
+- 了解mem repair相关内容
 
 ### FPGA
 
-- 梳理flow
-- 开发makefile，降低流程复杂度
-- 完成media ss之外ooc
+- no clock 修复
+	- timer
+	- adc ctrl
+- trng bitfile
 
-## Other
+### DMAX
 
-- 
+- 协助AE完成UM插图
 
 ---
 
@@ -32,11 +27,13 @@
 
 ### Highlight
 
-- 梳理fpga ooc flow, 开发makefile，降低流程复杂度
+- no clock 修复
+- tzc适应new bus变更
 
 ### Lowlight
 
-- 
+- no clock 修复中adc ctrl修复未起效果
+- trng bitfile受阻
 
 ### Help Needed
 
@@ -46,7 +43,13 @@
 ### Next Plan
 
 
-- fpga media ss ooc
+- 变更tzc mpc接口
+
+- 连接mpc
+
+- 出trng bitfile
+
+- 了解mem repair相关内容
 
 	
 
