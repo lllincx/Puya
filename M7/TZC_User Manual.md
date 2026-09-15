@@ -16,7 +16,7 @@
 **Q：**dubhe的安全属性问题？
 **A：**dubhe安全属性由IP本身控制，特权属性由TZC控制。dubhe_sec_cfg位为reserved，读写权限位RW（与其他reserved位域不同）。
 
-##  1.1 TZC简介
+## 1.1 TZC简介
 
 TrustZone 技术将系统与应用划分为安全域与非安全域。某些资源（DMAX、DMAH，TrustEngine）在内部自行管理其安全配置（本地配置），这类资源称为TrustZone感知型。大多数资源是非TrustZone感知型。TZC 集中管理此类非TrustZone感知型资源的安全配置。
 
@@ -49,7 +49,8 @@ TZC的主要特性如下：
 
 **应用信息**
 
-==『待补充』==
+仅在安全启动模式下编程、之后锁定且不允许更改
+使用特定的应用代码或安全内核 (microvisor) 时动态重新编程。未锁定时，MPC 安全块或区域大小可由安全软件在安全 FLASH 区域或安全 SRAM 来更改。相同的备注适用于定义每个外设的安全/特权状态的 GTZC_TZSC_SECCFGRx/PRIVCFGRx 寄存器（待完善）
 
 在TrustZone系统中的TZC：
 
