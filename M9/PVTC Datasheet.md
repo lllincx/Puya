@@ -1,4 +1,4 @@
-### 工艺温度检测控制器（PTSC，process temperature sensor controler）
+# 工艺温度检测控制器（PTSC，process temperature sensor controler）
 
 ### 简介
 
@@ -245,18 +245,18 @@ PTSC为每个传感器模块提供两个告警：告警 A（Alarm A） 和 告�
 	2. 写 `PTSC_PD/TS_SDIF_CTRL` 寄存器，对远端从设备的 SDA 寄存器进行写操作。
 	
 		```text
-	SDIF_PROG = 0x1
+		SDIF_PROG = 0x1
 		SDIF_WRN  = 0x1
-	SDIF_ADDR[2:0]：用于选择目标 SDA 寄存器。
+		SDIF_ADDR[2:0]：用于选择目标 SDA 寄存器。
 		SDIF_WDATA[23:0]：提供要写入 SDA 寄存器的数据。
 		```
 	
 		SDA 寄存器应按照以下顺序进行编程：
 
 		```text
-	PTSC_SDA_PD/TS_TIMERR
+		PTSC_SDA_PD/TS_TIMERR
 		PTSC_SDA_PD/TS_CFGR
-	PTSC_SDA_PD/TS_CR
+		PTSC_SDA_PD/TS_CR
 		```
 	
 

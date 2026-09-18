@@ -18,16 +18,15 @@
 #### DMAX
 
 - 完成UM
-- support AE检查传输效率问题
-	- 不考虑存储器情况，burst len越大传输效率越大
-	- 存储器对burst len偏好不同，偏离多，传输效率降低
-	- 排除fifo深度对burst len影响之外，也会影响传输效率
+- support AE检查传输效率问题，完成报告
+- 完成burstlen报告
 
-### Other
+#### Other
 
 - 更新顶层no reset reg pin
 	- 支持npu media出no reset reg pin
 	- debug CKN问题
+	- 编写报告
 
 ---
 
@@ -35,7 +34,8 @@
 
 ### Highlight
 
-- 
+- 更新顶层no reset reg pin
+- 完成全部UM
 
 ### Lowlight
 
@@ -49,7 +49,7 @@
 ### Next Plan
 
 
-- PVTC UM
+- 检查各IP隐藏风险
 
 - 
 
@@ -65,3 +65,4 @@
 
 
 ![image-20260915192317591](https://pic.lllincx.cn/image-20260915192317591.png)
+
