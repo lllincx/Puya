@@ -1,6 +1,6 @@
 ## Note
 
-**testcase temp gen**
+testcase temp gen
 
 ```shell
 gen_temp tb --name=$module

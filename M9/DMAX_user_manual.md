@@ -55,7 +55,7 @@ DMAX的触发接口与外设的连接关系为固定，不可分配。DMAX通道
 | ------------------------ | ------------ | ---- |
 | 0                        | ospi_rd_dma  |      |
 | 1                        | ospi_wr_dma  |      |
-| 2-                       | -            |      |
+| 2                        | -            |      |
 | 3                        | -            |      |
 
 # DMAX功能说明
@@ -217,10 +217,13 @@ DMAX 有两种模式来确定其 AXI5 突发节的大小（axsize）：
 
 假设采用以下设置：
 
-- DATA\_WIDTH = 64
-- CH\_CTRL.TRANSIZE = 0（8 位），CH\_XADDRINC.SRC/DESXADDRINC = 1
-- CH\_XSIZE.SRC/DESXSIZE = 0xD（13 字节）
-- CH\_SRC/DESADDR.SRC/DESXADDR[2:0] = 3
+```tcl
+DATA_WIDTH = 64
+CH_CTRL.TRANSIZE = 0 (8 bits)
+CH_XADDRINC.SRC/DESXADDRINC = 1
+CH_XSIZE.SRC/DESXSIZE = 0xD (13 Bytes)
+CH_SRC/DESADDR.SRC/DESXADDR[2:0] = 3
+```
 
 #### 非优化读/写
 
@@ -393,35 +396,35 @@ DMA 控制器还具备检测存储器传输期间错误的能力。当接收到�
 
 一维回绕传输可能出现以下几种情况：
 
-##### SRCXSIZE == 0, DESXSIZE == 0
+##### `SRCXSIZE == 0, DESXSIZE == 0`
 
 DMA 控制器传输不启动。可能仅处于等待触发信号的状态。
 
-##### SRCXSIZE == 0, DESXSIZE > 0
+##### `SRCXSIZE == 0, DESXSIZE > 0`
 
 - continue, wrap：无事发生，不执行读或写操作。
 - fill：目的端填充预定义的填充值（fill value），因此仅发生写操作。
 
-##### SRCXSIZE > 0, DESXSIZE == 0
+##### `SRCXSIZE > 0, DESXSIZE == 0`
 
 - continue, wrap, fill：不发生写操作。DMA 控制器仅发送 `SRCXSIZE` 次数的读传输。
 
-##### SRCXSIZE == DESXSIZE
+##### `SRCXSIZE == DESXSIZE`
 
 无论 `XTYPE` 设置为何值，本质上都是标准的 1D 操作。
 
-##### SRCXSIZE > DESXSIZE
+##### `SRCXSIZE > DESXSIZE`
 
 由于目的端没有足够空间容纳源内存内容，当目的端范围填满时拷贝停止。不会发生覆盖，多余的数据在 DMA 控制器内部被丢弃。
 
-##### SRCXSIZE < DESXSIZE
+##### `SRCXSIZE < DESXSIZE`
 
 - continue：当源端数据耗尽时，DMA 控制器停止数据拷贝。执行 `SRCXSIZE` 次数的读操作和写操作。
 - wrap：当到达源数据末尾时，源地址计数器跳转回原始起始地址，并开始将相同的源数据拷贝到所有必要的目的内存位置。在整个回绕操作期间，源内存位置会被多次读取，因此源数据需保持不变（使用流接口时除外）。即使 `SRCXSIZE` 较小，本质上也会执行 `DESXSIZE` 次数的读和写。
 	- 注意：单凭 `SRCXSIZE` 和 `SRCADDR` 的状态无法确定已执行的读取次数，必须根据 `DESXSIZE` 和 `DESADDR` 的进度来计算。
 - fill：向所有剩余的目的位置插入填充值。填充值由额外寄存器定义，并使用对应的传输位宽部分。读操作次数等于 `SRCXSIZE`，填充值在 DMA 控制器内部生成，总计产生 `DESXSIZE` 次写操作。
 
-##### DESXADDRINC = 0
+##### `DESXADDRINC = 0`
 
 特殊回绕案例。 此设置表示目的地址不递增（通常用于目标为 FIFO 的场景），因此不会发生实际的地址回绕。
 
@@ -448,7 +451,7 @@ DMA 控制器传输不启动。可能仅处于等待触发信号的状态。
 
 > fig 5.4
 
-DMA-350 支持 16 位宽的递增寄存器。该数值按 2 的补码解释：负数范围为 -32768（0x8000）到 -1（0xFFFF），零和正数范围为 0（0x0000）到 32767（0x7FFF）。
+DMA-350 支持 16 位宽的递增寄存器。该数值按 2 的补码解释：负数范围为`-32768(0x8000)~ -1(0xFFFF)`，零和正数范围为` 0(0x0000)~32767(0x7FFF)`。
 
 ## 3.3 DMA 控制器操作扩展命令
 
@@ -493,7 +496,7 @@ YADDRSTRIDE 寄存器定义了每条 XSIZE 宽度行起始地址之间的地址�
 `YTYPE` 的设置与 `XTYPE` 非常相似，但它们作用于传输的 Y 方向：
 
 - disable：不执行 二维传输，忽略 YSIZE 和 YADDRSTRIDE 的值。
-- continue：禁用回绕。读取 SRCYSIZE 行数据，并由 $min(SRCYSIZE, DESYSIZE)$ 限制传输期间写入的行数。
+- continue：禁用回绕。读取 SRCYSIZE 行数据，并由 `min(SRCYSIZE, DESYSIZE)` 限制传输期间写入的行数。
 - wrap：启用回绕，源数据行会被多次拷贝到目的区域。
 - fill：启用填充，目的端的剩余行将使用填充值填充。
 

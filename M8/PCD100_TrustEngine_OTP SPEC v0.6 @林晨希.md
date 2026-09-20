@@ -11,18 +11,31 @@
 
 ## Diagram
 
-```
-             (flash) WR
-                 |
-                 v
-          +---------------+                      +---------------+
-          |               | Power on / OBL Reset |               |
-          |     Flash     |--------------------->|  TrustEngine  |
-          |               |                      |               |
-          +---------------+                      +---------------+
-                 |                                      |
-                 | Flash RD                             | TrustEngine RD
-                 v                                      v
+```mermaid
+flowchart LR
+    subgraph L[" "]
+        direction TB
+        W[" "] -->|"Flash WR"| F["Flash"]
+        F -->|"Flash RD"| FR[" "]
+    end
+
+    subgraph R[" "]
+        direction TB
+        P[" "] -->|"X"| T["TrustEngine"]
+        T -->|"TrustEngine RD"| TR[" "]
+    end
+
+    L -->|"Power on / OBL Reset"| R
+
+    style L fill:none,stroke:none
+    style R fill:none,stroke:none
+    style W fill:none,stroke:none
+    style P fill:none,stroke:none
+    style FR fill:none,stroke:none
+    style TR fill:none,stroke:none
+    style F fill:none,stroke:#000
+    style T fill:none,stroke:#000
+    linkStyle default stroke:#000
 ```
 
 ## Flash WR
