@@ -1,3 +1,12 @@
+```mermaid
+flowchart TD
+A[ 抓工程实际使用的所有 DFF 类型] -.-> B[ 定义no rst cell列表] --> C[抓取符合ref_list的instance的完整路径]   
+F[ 添加VV环境下cell路径前缀]-->G(( ))
+G(( ))--> E[输出no rst cell CK pin]
+a[ restore PT session]-->C--> G(( )) -->D[ 输出no rst cell Q pin]
+b[ 进入PT工程]-->C
+   style A stroke-dasharray:4 4
+```
 
 ### restore PT session，或进入PT工程
 
